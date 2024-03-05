@@ -40,7 +40,7 @@ const QuestionsAnswersHome = () => {
       id="q&a"
       className="w-full flex flex-wrap justify-center items-center"
     >
-      <div className="w-full flex flex-wrap justify-start items-center text-xl space-y-2">
+      <div className="w-full flex flex-wrap justify-start items-center space-y-2">
         {QAs?.map((qa) => (
           < >
             <div className="w-full">
@@ -52,7 +52,7 @@ const QuestionsAnswersHome = () => {
                     : handleAnswer("");
                 }}
               >
-                <span className="w-3/4 flex-grow text-left font-roboto-500 text-gray-200">
+                <span className="w-3/4 flex-grow text-left font-roboto-500 text-gray-700 text-lg lg:text-xl">
                   {qa.question}
                 </span>
                 <IoIosArrowDown
@@ -71,7 +71,7 @@ const QuestionsAnswersHome = () => {
                 answer === qa.answer_id ? "show" : ""
               }`}
             >
-              <span className="flex-grow text-left font-roboto-400 text-gray-400">
+              <span className="flex-grow text-left font-roboto-400 text-gray-400 text-lg lg:text-xl">
                 {qa.answer}
               </span>
             </div>

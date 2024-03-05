@@ -14,14 +14,14 @@ const LandingPage = () => {
   return (
     <div>
       <Header />
-      <div className="px-4 lg:px-24 space-y-16 bg-gray-100">
+      <div className="px-4 md:px-6lg:px-10 xl:px-24 space-y-16 bg-gray-100">
         <Home />
         <DescriptionAndPhotos />
         <ItemsContainer />
         <ComparisonContainer />
       </div>
       <Flyer />
-      <div className="px-2 lg:px-24 ">
+      <div className="px-4 md:px-6lg:px-10 xl:px-24 bg-gray-100">
         <DescriptionPercentage />
         <ChatImages />
         <QuestionsAnswersHome />

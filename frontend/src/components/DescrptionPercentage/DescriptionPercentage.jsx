@@ -2,21 +2,21 @@ import React from "react";
 import StatementList from ".././ProgressBar/ProgressBar";
 const DescriptionPercentage = () => {
   return (
-    <div className="flex flex-wrap justify-between items-start space-x-8 h-[558px] my-8 ">
-      <div className="w-full lg:w-[47%] flex flex-wrap justify-start items-start space-y-4">
-        <h2 className="font-roboto-300 text-xl text-left text-blue-500">
+    <div className="flex flex-wrap justify-between items-start h-auto lg:h-[550px] my-8 ">
+      <div className="w-full lg:w-[50%] flex flex-wrap justify-start items-start space-y-4">
+        <h2 className="w-full font-roboto-300 text-xl text-center lg:text-left text-blue-500">
           Estudio Clinico
         </h2>
-        <h1 className="font-roboto-400 text-5xl text-left">
+        <h1 className="font-roboto-400 text-3xl lg:text-5xl text-center lg:text-left">
           Resultados demostrados al cabo de 90 días
         </h1>
-        <div className="flex lg:hidden overflow-hidden">
-        <img
-          src="https://www.agefit.com/_next/image?url=%2Fproduct-serum-planas-2.png&w=750&q=75"
-          alt=""
-          className="w-full rounded-xl"
-        />
-      </div>
+        <div className="flex lg:hidden overflow-hidden px-10">
+          <img
+            src="https://www.agefit.com/_next/image?url=%2Fproduct-serum-planas-2.png&w=750&q=75"
+            alt=""
+            className="w-full rounded-xl"
+          />
+        </div>
         <p>
           Hemos desarrollado y registrado la fórmula Anti-aging Infalible con la
           Caléndula Marigold® que ha sido científicamente comprobada con
@@ -26,7 +26,7 @@ const DescriptionPercentage = () => {
         </p>
         <StatementList />
       </div>
-      <div className="hidden lg:flex w-[47%] overflow-hidden h-full rounded-xl">
+      <div className="hidden lg:flex justify-end w-[50%] overflow-hidden h-full rounded-xl">
         <img
           src="https://www.agefit.com/_next/image?url=%2Fproduct-serum-planas-2.png&w=750&q=75"
           alt=""

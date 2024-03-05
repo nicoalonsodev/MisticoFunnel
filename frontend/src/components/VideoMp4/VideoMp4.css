@@ -1,0 +1,21 @@
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  object-position: center;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+  background-color: rgba(107, 114, 128, 0.692);
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.2); /* Cambia el tamaño al 120% en hover */
+}
+
+.volume-button {
+  background-color: rgba(51, 50, 50, 0.736); /* Gris semi-transparente */
+}

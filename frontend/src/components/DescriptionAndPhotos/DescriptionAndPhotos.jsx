@@ -9,13 +9,13 @@ const DescriptionAndPhotos = () => {
       <div className="w-full lg:w-1/2 flex flex-wrap justify-start items-start h-full px-0 lg:px-10">
         <div className="flex flex-wrap items-start h-auto justify-start gap-y-2">
           <div className="w-full">
-            <h1 className="text-gray-600 font-helvetica-300 text-xl">
-              Mistico
+            <h1 className="text-yellow-700 font-roboto-400 text-xl">
+              Estudio clínico
             </h1>
           </div>
           <div className="w-full">
-            <h1 className="text-gray-900 font-roboto-500 text-4xl">
-              Casa a estrenar Yerba buena Jockey club (viejo golf)
+            <h1 className="text-gray-700 font-roboto-500 text-4xl">
+              Tratamiento Anti-Aging Infalible: Crema + Serum 
             </h1>
           </div>
           <div className="flex lg:hidden w-full flex-wrap justify-start items-start">
@@ -46,9 +46,7 @@ const DescriptionAndPhotos = () => {
             <li className=" font-plus-400 text-md">
               Crema Anti-aging Reparadora 50ml
             </li>
-            <li className="font-plus-400 text-md">
-              Serum Anti-aging 30ml
-            </li>
+            <li className="font-plus-400 text-md">Serum Anti-aging 30ml</li>
             <li className="font-plus-400 text-md">
               Aceite Reparador Corporal 100ml
             </li>
@@ -60,7 +58,10 @@ const DescriptionAndPhotos = () => {
             </li>
           </ul>
           <div className="w-full flex justify-center lg:justify-start items-center mt-4">
-            <a className="flex justify-start items-center w-full" href="#calendly">
+            <a
+              className="flex justify-start items-center w-full"
+              href="#calendly"
+            >
               <button className="w-full lg:w-1/2 text-xl font-plus-600 border-2 rounded-md py-2 px-4 transition duration-400 button-calendly">
                 Comprar - $32.000
               </button>

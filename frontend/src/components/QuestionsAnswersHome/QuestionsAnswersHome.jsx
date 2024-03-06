@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import "./QuestionsAnswersHome.css";
-const QuestionsAnswersHome = () => {
+const QuestionsAnswersHome = ({ landing }) => {
   const [answer, setAnswer] = useState("");
 
   const handleAnswer = (answerId) => {
@@ -36,13 +36,19 @@ const QuestionsAnswersHome = () => {
   ];
 
   return (
-    <div
-      id="q&a"
-      className="w-full flex flex-wrap justify-center items-center"
-    >
-      <div className="w-full flex flex-wrap justify-start items-center space-y-2">
+    <div id="q&a" className={`w-full flex flex-wrap justify-center items-center gap-y-12 ${landing ? "py-10" : "py-0"}`}>
+      { landing ? 
+      <div className="w-full flex flex-wrap justify-center">
+        <h1 className="w-full text-center  text-yellow-700 font-roboto-400 text-xl">
+          Respuestas a tus preguntas
+        </h1>
+        <p className="w-full text-center text-gray-900 font-roboto-500 text-4xl">
+          Preguntas frecuentes
+        </p>
+      </div> : ""}
+      <div className="w-full flex flex-wrap justify-start items-center space-y-2 max-w-[800px]">
         {QAs?.map((qa) => (
-          < >
+          <>
             <div className="w-full">
               <button
                 className="w-full flex justify-between items-center space-x-2 text-gray-200"
@@ -52,7 +58,7 @@ const QuestionsAnswersHome = () => {
                     : handleAnswer("");
                 }}
               >
-                <span className="w-3/4 flex-grow text-left font-roboto-500 text-gray-700 text-lg lg:text-xl">
+                <span className="w-3/4 flex-grow text-left font-roboto-400 text-gray-700 text-lg lg:text-xl">
                   {qa.question}
                 </span>
                 <IoIosArrowDown
@@ -71,7 +77,7 @@ const QuestionsAnswersHome = () => {
                 answer === qa.answer_id ? "show" : ""
               }`}
             >
-              <span className="flex-grow text-left font-roboto-400 text-gray-400 text-lg lg:text-xl">
+              <span className="flex-grow text-left font-roboto-300 text-gray-500 text-lg lg:text-xl">
                 {qa.answer}
               </span>
             </div>

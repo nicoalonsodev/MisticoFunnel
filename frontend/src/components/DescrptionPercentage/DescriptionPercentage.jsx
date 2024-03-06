@@ -2,9 +2,9 @@ import React from "react";
 import StatementList from ".././ProgressBar/ProgressBar";
 const DescriptionPercentage = () => {
   return (
-    <div className="flex flex-wrap justify-between items-start h-auto lg:h-[550px] my-8 ">
+    <div className="flex flex-wrap justify-between items-start h-auto lg:h-[550px] xl:space-x-0">
       <div className="w-full lg:w-[50%] flex flex-wrap justify-start items-start space-y-4">
-        <h2 className="w-full font-roboto-300 text-xl text-center lg:text-left text-blue-500">
+        <h2 className="w-full font-roboto-400 text-xl text-center lg:text-left text-yellow-700">
           Estudio Clinico
         </h2>
         <h1 className="font-roboto-400 text-3xl lg:text-5xl text-center lg:text-left">

@@ -3,9 +3,9 @@ import VideoMp4 from "../../components/VideoMp4/VideoMp4";
 import QuestionsAnswersHome from "../QuestionsAnswersHome/QuestionsAnswersHome";
 const Home = () => {
   return (
-    <div className="flex flex-wrap justify-center items-start pt-8 lg:pt-32 space-x-14">
+    <div className="flex flex-wrap justify-center items-start  space-x-14">
       <div className="w-full lg:w-[38%] flex flex-wrap justify-center items-start space-y-4">
-        <p className="w-full text-blue-800 font-helvetica-400 text-lg text-left">Mistico</p>
+        <p className="w-full text-yellow-700 font-roboto-400 text-lg text-left">MISTICO</p>
         <div className="w-full">
           <h1 className="font-roboto-500 font-semibold text-3xl md:text-4xl lg:text-5xl text-left text-gray-700">¿Como usar tu Rutina Anti-Aging Infalible?</h1>
         </div>

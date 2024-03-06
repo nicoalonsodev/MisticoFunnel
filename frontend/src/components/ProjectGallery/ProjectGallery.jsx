@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import img from "../../assets/img3.jpg";
+import img2 from "../../assets/img4.jpg";
+import img3 from "../../assets/img5.jpg";
 const ProjectGallery = () => {
   const [showNav, setShowNav] = useState(false);
   const images = [
     {
       original:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701867160/Zuch%20Properties/Propiedades/The%20Boat/Exterior_V3.RGB_color_fvpanj.webp",
+        img,
       thumbnail:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701867160/Zuch%20Properties/Propiedades/The%20Boat/Exterior_V3.RGB_color_fvpanj.webp",
+      img,
     },
     {
       original:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701694749/Zuch%20Properties/Propiedades/Bahia%20Tankah/FINAL_DEPA_2DO_PISO_LATERAL_3_vr3ng8.jpg",
+      img2,
       thumbnail:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701694749/Zuch%20Properties/Propiedades/Bahia%20Tankah/FINAL_DEPA_2DO_PISO_LATERAL_3_vr3ng8.jpg",
+      img2,
     },
     {
       original:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701694715/Zuch%20Properties/Propiedades/Bahia%20Tankah/FINALES_FRONTAL_nt2sda.webp",
+      img3,
       thumbnail:
-        "https://res.cloudinary.com/doczyujqf/image/upload/c_scale,h_600,w_1000/v1701694715/Zuch%20Properties/Propiedades/Bahia%20Tankah/FINALES_FRONTAL_nt2sda.webp",
+      img3,
     },
   ];
 

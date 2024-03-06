@@ -6,7 +6,6 @@ const CalendlyFooter = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > window.innerHeight * 1.5) {
-        // 200vh
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -32,7 +31,7 @@ const CalendlyFooter = () => {
         </h1>
         <div>
           <a href="#calendly">
-            <button className="text-xl font-poppins-400 text-gray-200 border-2 bg-purple-800 border-gray-800 rounded-3xl py-2 px-4 hover:bg-purple-300 hover:text-gray-800 transition duration-400">
+            <button className="text-xl font-poppins-400 text-gray-200 border-2 bg-black border-gray-800 rounded-xl py-2 px-4 hover:bg-gray-700 hover:text-gray-100 transition duration-400">
               Schedule a Discovery a Call
             </button>
           </a>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo-mistico.jpg";
+import logo2 from "../../assets/logo-transparente.png";
 import MenuPhone from "../MenuPhone/MenuPhone";
 import { IoMenu } from "react-icons/io5";
 import "./Header.css";
@@ -16,11 +17,11 @@ const Header = () => {
       >
         <div className="w-1/2 flex items-center">
           <a href="/">
-            <img className="w-[140px]" src={logo} alt="Logo" />
+            <img className="w-[105px]" src={logo2} alt="Logo" />
           </a>
         </div>
         <button className="w-1/2 flex justify-center items-center pl-20" onClick={handleMenuToggle}>
-          <IoMenu className="text-yellow-400 w-16 h-16 " width={64} />
+          <IoMenu className="text-gray-200 w-16 h-16 " width={64} />
         </button>
       </div>
       <div className="hidden lg:flex justify-between items-center fixed top-0 right-0 w-screen h-20 bg-black shadow-lg lg:px-20 xl:px-36 py-2 z-40">

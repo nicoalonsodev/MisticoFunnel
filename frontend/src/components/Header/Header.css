@@ -19,14 +19,14 @@
     left: 0; /* Ajustamos la posición desde la izquierda */
   }
 
-  .button-calendly {
+  .button-buy {
     color: #e0e0e0;
     border: 3px solid #272727;
     background-color: #000000;
     transition: background-color 0.4s, color 0.4s;
   }
   
-  .button-calendly:hover {
-    background-color: #95811e;
+  .button-buy:hover {
+    background-color: #c8a808;
     color: #ffffff;
   }

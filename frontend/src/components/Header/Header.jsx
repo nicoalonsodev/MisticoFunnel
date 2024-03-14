@@ -24,11 +24,11 @@ const Header = () => {
           <IoMenu className="text-gray-200 w-16 h-16 " width={64} />
         </button>
       </div>
-      <div className="hidden lg:flex justify-between items-center fixed top-0 right-0 w-screen h-20 bg-black shadow-lg lg:px-20 xl:px-36 py-2 z-40">
+      <div className="hidden lg:flex justify-center items-center fixed top-0 right-0 w-screen h-20 bg-black shadow-lg lg:px-20 xl:px-36 py-2 z-40">
         <div className="flex justify-center items-center h-full">
           <img className="h-full" src={logo} alt="logo-galindosa" />
         </div>
-        <div className="w-2/3">
+        {/* <div className="w-2/3">
           <ul className="flex justify-center text-lg items-center space-x-12 font-plus-400 text-gray-400">
             <li>
               <a className="underline-on-hover" href="#description">
@@ -58,12 +58,12 @@ const Header = () => {
           </ul>
         </div>
         <div className="flex justify-center items-center">
-          <a className="flex justify-center items-center" href="#calendly">
-            <button className="lg:text-lg xl:text-xl font-plus-600 border-2 rounded-xl py-2 px-4 transition duration-400 button-calendly">
-              Agenda una Visita
+          <a className="flex justify-center items-center" href="#button-buy">
+            <button className="lg:text-lg xl:text-xl font-plus-600 border-2 rounded-xl py-2 px-4 transition duration-400 button-buy">
+            Comprar - $32.000
             </button>
           </a>
-        </div>
+        </div> */}
       </div>
       <div>
         {menuOpen ? <MenuPhone handleMenuToggle={handleMenuToggle} /> : ""}

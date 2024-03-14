@@ -11,7 +11,7 @@ const Flyer = () => {
       </div>
       <div className="w-[65%] flex justify-center items-center">
         <h1
-          className="text-gray-200 font-helvetica-600 text-2xl md:text-4xl lg:text-5xl xl:text-6xl"
+          className="text-gray-200 text-center font-helvetica-600 text-2xl md:text-4xl lg:text-5xl xl:text-6xl"
           style={{ lineHeight: "1.3" }}
         >
           Grantía de reembolso por 40 días

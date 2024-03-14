@@ -14,6 +14,7 @@ import OutfitCarousel from "../../components/OutfitCarousel/OutfitCarousel";
 import img from "../../assets/img3.jpg";
 import img2 from "../../assets/img4.jpg";
 import img3 from "../../assets/img5.jpg";
+import "./LandingPage.css"
 const LandingPage = () => {
   const images = [img, img2, img3];
   return (

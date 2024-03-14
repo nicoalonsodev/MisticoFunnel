@@ -3,6 +3,8 @@ import ProjectGallery from "../ProjectGallery/ProjectGallery";
 import SizesTable from "../../components/SizesTable/SizesTable";
 import { IoMdCloseCircle } from "react-icons/io";
 import sizes from "../../assets/talles.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const DescriptionAndPhotos = () => {
   const [fullScreen, setFullScreen] = useState(false);
   const [size, setSize] = useState("");
@@ -31,6 +33,14 @@ const DescriptionAndPhotos = () => {
       setUrl(
         "https://articulo.mercadolibre.com.ar/MLA-1370688819-buzo-de-mujer-mindtrip-oneill-_JM#polycard_client=recommendations_vip-pads-up&reco_backend=vip_pads_up_ranker_baseline_marketplace&reco_client=vip-pads-up&reco_item_pos=2&reco_backend_type=low_level&reco_id=9127647c-7b3e-48a0-8bfc-76a575a4a288&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=3&ad_click_id=MGM3YjJkMzYtMDVjMy00ZDUyLWExZmYtNGJmNTMwZTJlNzU4"
       );
+    }
+  };
+
+  const handleNavigateButton = () => {
+    if (size && url) {
+      window.location.href = url;
+    } else {
+      toast.info("Debe escoger un talle");
     }
   };
 
@@ -75,7 +85,7 @@ const DescriptionAndPhotos = () => {
               piel, y aliviar alteraciones epidérmicas.
             </h1>
           </div>
-          <ul className=" w-full space-y-2 list-disc pl-4 text-gray-500">
+          <ul id="button-buy" className=" w-full space-y-2 list-disc pl-4 text-gray-500">
             <li className=" font-plus-400 text-md">
               Crema Anti-aging Reparadora 50ml
             </li>
@@ -90,7 +100,7 @@ const DescriptionAndPhotos = () => {
               Regalo Asesora de Rejuvenecimiento VIP (Acceso directo)
             </li>
           </ul>
-          <div className="py-6 space-y-4">
+          <div  className="py-6 space-y-4">
             <SizesTable handleFullScreen={handleFullScreen} />
             <div className="flex justify-start items-center space-x-2">
               <button
@@ -135,13 +145,16 @@ const DescriptionAndPhotos = () => {
               </button>
             </div>
           </div>
-
-          <div className="w-full flex justify-center lg:justify-start items-center mt-4">
+          <div className="w-full flex justify-center lg:justify-start">
+            <h1 className="text-gray-600 text-lg">- Selecciona un talle para comprar -</h1>
+          </div>
+          <div className="w-full flex justify-center lg:justify-start items-center">
             <a
               className="flex justify-start items-center w-full"
-              href={url} target="_blank"
+              // href={url} target="_blank"
+              onClick={() => handleNavigateButton()}
             >
-              <button className="w-full lg:w-1/2 text-xl font-plus-600 border-2 rounded-md py-2 px-4 transition duration-400 button-calendly">
+              <button className="w-full lg:w-1/2 text-xl font-plus-600 border-2 rounded-md py-2 px-4 transition duration-400 button-buy">
                 Comprar - $32.000
               </button>
             </a>
@@ -163,6 +176,7 @@ const DescriptionAndPhotos = () => {
       ) : (
         ""
       )}
+      <ToastContainer />
     </div>
   );
 };

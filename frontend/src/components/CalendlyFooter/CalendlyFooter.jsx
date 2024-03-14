@@ -27,12 +27,12 @@ const CalendlyFooter = () => {
     >
       <div className="flex justify-center items-center gap-x-6">
         <h1 className="hidden lg:block text-3xl font-plus-400 text-gray-800">
-          Schedule a Meeting With Our Team
+        Tratamiento Anti-Aging Infalible
         </h1>
         <div>
-          <a href="#calendly">
-            <button className="text-xl font-poppins-400 text-gray-200 border-2 bg-black border-gray-800 rounded-xl py-2 px-4 hover:bg-gray-700 hover:text-gray-100 transition duration-400">
-              Schedule a Discovery a Call
+          <a href="#button-buy">
+            <button className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 button-buy">
+            Comprar - $32.000
             </button>
           </a>
         </div>

@@ -21,9 +21,9 @@ const SizesTable = ({ handleFullScreen }) => {
         <div
           className={`antDiv ${
             openDiv ? "show" : ""
-          } justify-center flex-wrap items-start text-left flex w-2/3 space-y-4 border-b-2 border-gray-400 cursor-pointer text-xl text-gray-800`}
+          } justify-center flex-wrap items-start text-left flex w-[73%] space-y-4 border-b-2 border-gray-400 cursor-pointer text-xl text-gray-800`}
         >
-          <p className="w-full" onClick={() => handleOpenDiv()}>
+          <p className="w-full text-black" onClick={() => handleOpenDiv()}>
             Haz click para ver los talles.
           </p>
           <div onClick={() => handleFullScreen(true)}>

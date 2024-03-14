@@ -39,7 +39,7 @@ const MyCarousel = ({ images }) => {
   };
   return (
     <div className="flex w-full h-auto justify-center items-center relative max-w-[1200px]">
-      <div className="carousel w-full h-auto relative flex overflow-scroll">
+      <div className="carousel w-full h-auto relative flex overflow-scroll rounded-lg">
         <img
           key={selectedIndex}
           src={selectedImage}

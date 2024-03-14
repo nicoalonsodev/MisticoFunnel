@@ -1,0 +1,14 @@
+.antDiv {
+    height: 40px;
+    transition: height 0.5s ease;
+  }
+  
+  .antDiv.show {
+    height: 230px; 
+  }
+
+  @media screen and (min-width: 1280px) {
+    .antDiv.show {
+      height: 280px; 
+    }
+  }

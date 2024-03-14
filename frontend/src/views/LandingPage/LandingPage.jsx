@@ -24,7 +24,9 @@ const LandingPage = () => {
         <DescriptionAndPhotos />
         <ItemsContainer />
         <ComparisonContainer />
-        <OutfitCarousel images={images} />
+        <div className="w-full flex justify-center items-center">
+          <OutfitCarousel images={images} />
+        </div>
       </div>
       <Flyer />
       <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-100 py-12">

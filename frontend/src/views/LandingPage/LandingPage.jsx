@@ -30,7 +30,7 @@ const LandingPage = () => {
         </div>
       </div>
       <Flyer />
-      <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-100 py-12">
+      <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-100 py-12 space-y-6">
         <DescriptionPercentage />
         <ChatImages />
         <QuestionsAnswersHome landing={"landing"} />

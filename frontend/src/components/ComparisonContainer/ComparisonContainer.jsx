@@ -24,12 +24,20 @@ const ComparisonContainer = () => {
           materiales para garantizar durabilidad y estilo incomparables.
         </p>
       </div>
-      <div className="w-full flex justify-center items-center gap-x-10">
-        {comparisons?.map((comp) => (
-          <div className="w-1/4">
-            <ComparisonSlider img1={comp.img1} img2={comp.img2} />
-          </div>
-        ))}
+      <div className="w-full flex flex-wrap justify-center items-center">
+        <div className="w-full flex justify-start lg:justify-center overflow-x-auto gap-x-10">
+          {comparisons?.map((comp, index) => (
+            <div key={index} className="w-3/4 lg:w-1/4 flex-shrink-0">
+              {/* <ComparisonSlider img1={comp.img1} img2={comp.img2} /> */}
+              <img src={comp.img1} alt="" />
+            </div>
+          ))}
+        </div>
+        <div className="flex lg:hidden w-full justify-end text-right">
+          <h1 className="text-gray-700 text-lg p-2 ">
+            Deslizar para ver mas ⮕
+          </h1>
+        </div>
       </div>
     </div>
   );

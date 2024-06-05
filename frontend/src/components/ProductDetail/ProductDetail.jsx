@@ -100,7 +100,7 @@ const ProductDetail =
     window.fbq('track', 'AddToCart');
   };
   return (
-    <div className="bg-white flex flex-wrap lg:flex-nowrap">
+    <div className="bg-gray-50 flex flex-wrap lg:flex-nowrap">
       <div className="block lg:hidden pt-0 pb-8 lg:py-8 w-[100%]">
         <Slider {...settings} className="">
           <div className="px-2">

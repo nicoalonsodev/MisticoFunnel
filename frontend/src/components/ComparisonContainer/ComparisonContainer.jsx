@@ -2,7 +2,16 @@ import React from "react";
 import ComparisonSlider from "../ComparisonSlider/ComparisonSlider";
 import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
+import Slider from "react-slick";
+import reasons from "./reasons";
 const ComparisonContainer = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   const comparisons = [
     { img1: img1, img2: img2 },
     { img1: img1, img2: img2 },
@@ -12,24 +21,44 @@ const ComparisonContainer = () => {
   return (
     <div className="w-full flex flex-wrap justify-center items-center space-y-12">
       <div className="w-full flex flex-wrap justify-center space-y-4">
-        <h1 className="w-full text-center  text-yellow-700 font-roboto-400 text-xl">
-          Antes y Despues
+        <h1 className="w-full text-center  text-gray-700 font-sans-600 text-balance text-3xl lg:text-4xl">
+          Las <span className="text-yellow-700">3 razones</span> por la que van
+          a ser tendencia los pantalones anchos.
         </h1>
-        <p className="w-full text-center text-gray-700 font-roboto-500 text-4xl">
-          Preguntas frecuentes
-        </p>
-        <p className="w-full max-w-[750px] text-center text-gray-800 font-roboto-300 text-lg lg:text-xl">
-          La calidad de nuestros productos es nuestra máxima prioridad. Cada
-          prenda es cuidadosamente seleccionada y confeccionada con los mejores
-          materiales para garantizar durabilidad y estilo incomparables.
-        </p>
+        <hr className="w-2/3 h-[2px] bg-yellow-700" />
       </div>
-      <div className="w-full flex flex-wrap justify-center items-center">
+      <div className="block lg:hidden pt-0 pb-8 lg:py-8 w-[100%]">
+        <Slider {...settings} className="">
+          {reasons?.map((reason, index) => (
+            <div className="px-2">
+              <div
+                key={index}
+                className="w-auto flex flex-wrap justify-center items-start gap-4 rounded-xl overflow-hidden"
+              >
+                <h1 className="font-sans-500 text-left w-full text-3xl text-yellow-700 ">
+                  {reason.title}
+                </h1>
+                <img src={reason.img} alt="img_before" className="rounded-xl" />
+                <p className="w-full text-center text-xl">
+                  {reason.description}
+                </p>
+              </div>
+            </div>
+          ))}
+
+        </Slider>
+      </div>
+      <div className="hidden w-full lg:flex flex-wrap justify-center items-center">
         <div className="w-full flex justify-start lg:justify-center overflow-x-auto gap-x-10">
-          {comparisons?.map((comp, index) => (
-            <div key={index} className="w-3/4 lg:w-1/4 flex-shrink-0">
-              {/* <ComparisonSlider img1={comp.img1} img2={comp.img2} /> */}
-              <img src={comp.img1} alt="" />
+          {reasons?.map((reason, index) => (
+            <div key={index} className="w-3/4 lg:w-1/4 flex-shrink-0 space-y-2">
+              <h1 className="font-sans-500 text-left w-full text-2xl text-yellow-700">
+                {reason.title}
+              </h1>
+              <img className="rounded-xl" src={reason.img} alt="" />
+              <p className="font-sans-400 text-gray-700">
+                {reason.description}
+              </p>
             </div>
           ))}
         </div>

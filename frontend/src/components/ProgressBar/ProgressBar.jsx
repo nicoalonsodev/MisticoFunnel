@@ -17,9 +17,11 @@ const StatementBar = ({ statement, percentage }) => {
 const StatementList = () => {
   return (
     <div className="bg-gray-100 rounded-xl p-4 border-[1.5px] border-gray-300">
-      <StatementBar statement="presenta menos arrugas" percentage={76} />
-      <StatementBar statement="obtuvo una reducción clínicamente probada de las líneas de expresión" percentage={69} />
-      <StatementBar statement="obtuvo un aumento clínicamente probado en la elasticidad y firmeza de su piel" percentage={90} />
+      <StatementBar statement="Mejor precio que todas las marcas de shopping
+" percentage={90} />
+      <StatementBar statement="Mejor calidad que todas las marcas de shopping
+" percentage={96} />
+      <StatementBar statement="Mejor Calze que todas las marcas de shopping" percentage={89} />
     </div>
   );
 };

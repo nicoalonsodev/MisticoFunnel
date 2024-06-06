@@ -10,27 +10,27 @@ const QuestionsAnswersHome = ({ landing }) => {
 
   const QAs = [
     {
-      question: "¿Como utilizo los productos?",
+      question: "¿Cuál es el tiempo estimado de entrega de mi pedido?",
       answer:
-        "Tras limpiar la piel, aplica 4 gotas del serum antiarrugas. Posteriormente, aplica la crema antiedad reparadora.",
+        "El tiempo de entrega varía según tu ubicación. Generalmente, los pedidos nacionales tardan entre 3 a 7 días hábiles en llegar.",
       answer_id: "1",
     },
     {
-      question: "¿Esta rutina de pieles es buena para cualquier tipo?",
+      question: "¿Puedo realizar cambios o devoluciones de mi compra?",
       answer:
-        "Si, está recomendada para todo tipo de pieles, incluidas las sensibles y propensas al acné.",
+        " Sí, ofrecemos cambios y devoluciones dentro de los 30 días posteriores a la recepción del pedido. La prenda debe estar en su estado original, sin usar y con todas las etiquetas adjuntas. Para iniciar un cambio o devolución, por favor contáctanos a través de nuestro formulario de contacto o envíanos un correo a mistico.world@hotmail.com.",
       answer_id: "2",
     },
     {
-      question: "¿Cuando se comienzan a notar los resultados?",
+      question: "¿Cómo puedo saber qué talla elegir?",
       answer:
-        "Podrás comenzar a ver resultados en una semana, con resultados completos que generalmente aparecen después de 14-30 días de uso. Con el tiempo, los resultados serán aún más notables.",
+        "Cada producto tiene una guía de tallas específica disponible en la página del producto. Te recomendamos medir tu cuerpo y comparar tus medidas con nuestra guía para encontrar la talla que mejor te quede. Aca le dejo la GUIA DE TALLES ",
       answer_id: "3",
     },
     {
-      question: "¿Cuando se comienzan a notar los resultados?",
+      question: "¿Ofrecen envíos gratuitos?",
       answer:
-        "Podrás comenzar a ver resultados en una semana, con resultados completos que generalmente aparecen después de 14-30 días de uso. Con el tiempo, los resultados serán aún más notables.",
+        "Sí, ofrecemos envíos gratuitos en pedidos superiores a $100 dentro del territorio nacional. Para pedidos internacionales, ofrecemos envío gratuito en compras superiores a $200. También ocasionalmente tenemos promociones especiales con envío gratuito, así que te recomendamos suscribirte a nuestro boletín para estar al tanto de nuestras ofertas.",
       answer_id: "4",
     },
   ];

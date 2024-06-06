@@ -21,7 +21,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const LandingPage = () => {
 
-  const [homeVariant, setHomeVariant] = useState(2);
+  const [homeVariant, setHomeVariant] = useState(1);
   const handleHomeVariant = (variant) => {
     setHomeVariant(variant);
   };
@@ -30,9 +30,6 @@ const LandingPage = () => {
     <div>
       <Header />
       <div className="px-4 md:px-6 lg:px-10 xl:px-24 space-y-16 bg-gray-50 pb-12 pt-8 lg:pt-32">
-        {/* <Home /> */}
-        {/* <DescriptionAndPhotos />
-        <ItemsContainer /> */}
         <ProductDetail
           homeVariant={homeVariant}
           handleVariantDetail={handleHomeVariant}
@@ -46,7 +43,6 @@ const LandingPage = () => {
       <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-50 py-12 space-y-6">
         <DescriptionPercentage />
         <ChatImages />
-        <QuestionsAnswersHome landing={"landing"} />
       </div>
       <Footer />
       <CalendlyFooter />

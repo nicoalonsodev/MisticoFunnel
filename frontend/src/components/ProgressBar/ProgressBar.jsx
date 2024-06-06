@@ -8,7 +8,7 @@ const StatementBar = ({ statement, percentage }) => {
         <div className="">{statement}</div>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-        <div className="transition-all ease-out duration-1000 bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full" style={{ width: `${percentage}%` }}></div>
+        <div className="transition-all ease-out duration-1000 bg-gradient-to-r from-yellow-700 to-yellow-600 h-full rounded-full" style={{ width: `${percentage}%` }}></div>
       </div>
     </div>
   );

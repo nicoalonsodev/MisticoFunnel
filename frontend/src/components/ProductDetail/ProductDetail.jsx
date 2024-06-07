@@ -104,7 +104,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
           <h1 className="text-gray-500 text-xl mx-2">(+1000’s Reviews)</h1>
         </div> */}
         <div className="w-full flex justify-start items-start">
-          <h1 className="text-4xl lg:text-5xl text-left text-gray-800 font-sans-700">
+          <h1 className="text-5xl lg:text-5xl text-left text-gray-800 font-sans-800">
             Jean line
           </h1>
         </div>
@@ -121,7 +121,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
           </h1>
         </div>
         <div className="w-full flex justify-start items-start">
-          <ul className="text-left text-md lg:text-md text-gray-600">
+          <ul className="text-left text-lg lg:text-md text-gray-600">
             <li>🍑 Buen calze</li>
             <li>✨ Última tendencia de la moda.</li>
             <li>🌱 Combina con todo.</li>
@@ -163,7 +163,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
           ""
         )}
         <div className="w-full">
-         <p className="text-left"> Elegí un talle</p>
+         <p className="text-left font-sans-500"> Elegí un talle</p>
           <SizesSelector handleSize={handleSize} selectedSize={selectedSize} />
         </div>
        

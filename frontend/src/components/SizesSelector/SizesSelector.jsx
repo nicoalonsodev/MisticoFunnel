@@ -1,6 +1,6 @@
 import React from "react";
 import sizes from "../../utils/sizes";
-
+ 
 const SizesSelector = ({ handleSize, selectedSize }) => {
   const handleSizeSelection = (size) => {
     handleSize(size);

@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import star from "../../assets/star.svg";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/orebiSlice";
+import { useSelector } from "react-redux";
 import QuestionsAnswersHome from "../QuestionsAnswersHome/QuestionsAnswersHome";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useHistory } from 'react-router-dom';
+import { motion, AnimatePresence } from "framer-motion";
 import {
   calendar,
   shipping,
@@ -16,8 +21,14 @@ import {
 } from "../../assets/index";
 import SizesSelector from "../SizesSelector/SizesSelector";
 import variants from "../../utils/variants";
+import SizeGuide from "../SizesSelector/SizeGuide";
 
 const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
+  const products = useSelector((state) => state.orebiReducer.cartProducts);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [showAlert, setShowAlert] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
   const [selectedSize, setSelectedSize] = useState(null);
   const [images, setImages] = useState([
     "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717695940/A7409562-Editar-2_11zon_xyyby4.webp",
@@ -29,12 +40,14 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
   const [selectedVariant, setSelectedVariant] = useState(homeVariant);
   const [objectVariant, setObjectVariant] = useState({
     id: 1,
-    name: "pedrito gonzales",
+    name: "Cargo Carpinter Negro",
     images: [
       "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717695940/A7409562-Editar-2_11zon_xyyby4.webp",
       "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717695903/A7409564-Editar-2_11zon_trstrg.webp",
-      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717695766/A7409566-Editar-2_11zon_1_ebgvcd.webp",
+      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717695766/A7409566-Editar-2_11zon_1_ebgvcd.webp"
     ],
+    color: "Negro",
+    cat: "cargo"
   });
 
   useEffect(() => {
@@ -70,9 +83,51 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
     slidesToScroll: 1,
   };
 
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+      return;
+    }
+
+const updatedObjectVariant = {
+      ...objectVariant,
+      size: selectedSize, 
+      variant: {
+        imgUrl: objectVariant.images[0]
+      },
+      price: 60000,
+      quantity: 1,
+      image: objectVariant.images[0],                                            
+      
+    };
+    const newSelectedItems = [...selectedItems, updatedObjectVariant];
+    dispatch(
+      addToCart({
+        id: objectVariant.id,
+        name: objectVariant.name,
+        quantity: 1,
+        size: selectedSize,
+        image: objectVariant.images[0],
+        price: 60000,
+        color: "rojo",
+      })
+    );
+    setSelectedItems(newSelectedItems);
+  };
+
+  const handlePaymentGateway = () => {
+    history.push({
+      pathname: '/payment',
+      state: {
+        item: selectedItems,
+      },
+    });
+  };
+
   return (
     <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px]">
-      <div className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
+      <div id="targetSection" className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
         <div className="hidden lg:block sticky top-0">
           <img
             src={activeImg}
@@ -105,7 +160,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
         </div> */}
         <div className="w-full flex justify-start items-start">
           <h1 className="text-5xl lg:text-5xl text-left text-gray-800 font-sans-800">
-            Jean line
+            {objectVariant.name}
           </h1>
         </div>
         <div className="w-full flex justify-start items-start text-[12px]">
@@ -113,11 +168,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
         </div>
         <div className="w-full flex justify-start items-start ">
           <h1 className="text-gray-700 font-sans-500 text-left text-xl">
-            Si <span className="text-yellow-700">seleccionas</span> el jean,
-            recibirás un cupón de{" "}
-            <span className="text-yellow-700">descuento</span> del{" "}
-            <span className="text-yellow-700">30% </span>en la segunda unidad{" "}
-            <span className="text-yellow-700">en el checkout</span>.
+          <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
           </h1>
         </div>
         <div className="w-full flex justify-start items-start">
@@ -127,7 +178,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
             <li>🌱 Combina con todo.</li>
           </ul>
         </div>
-        <div className="block lg:hidden pt-0 pb-8 lg:py-8 w-[100%]">
+        <div id="#button-buy" className="block lg:hidden pt-0 pb-8 lg:py-8 w-[100%]">
         {images.length > 0 ? (
           <Slider {...settings} key={images.join('-')} className="">
             {images?.map((img, index) => (
@@ -162,8 +213,11 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
         ) : (
           ""
         )}
-        <div className="w-full">
+        <div className="w-full flex flex-wrap">
+         <div className="w-full flex justify-start items-center gap-x-3 mb-2">
          <p className="text-left font-sans-500"> Elegí un talle</p>
+         <SizeGuide cat={objectVariant.cat}  />
+          </div>
           <SizesSelector handleSize={handleSize} selectedSize={selectedSize} />
         </div>
        
@@ -186,14 +240,37 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
             />
           </div>
 
-          <a href={objectVariant.link}>
-            <button
+  
+           {products.length < 2 ? <button
               id="add-to-bag-button"
-              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-2xl font-sans-500 text-gray-200 px-2 py-4"
+              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-xl lg:text-2xl font-sans-500 text-gray-200 px-2 py-4"
+              onClick={handleAddToCart}
+         
             >
-              {objectVariant ? ` 👉🏻 ADD TO BAG $56,500` : ""}
-            </button>
-          </a>
+              {products.length === 0 ? `AGREGAR AL CARRITO` : products.length === 1 ? `30% DE DESCUENTO EN EL 2DO!` : ""}
+            </button> : ""}
+
+            <AnimatePresence>
+            {showAlert && (
+              <motion.div
+                className="alert border flex justify-start text-center rounded-md bg-yellow-700 text-white p-2 text-sm lg:text-lg mt-2"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+              >
+                Por favor, selecciona un talle.
+              </motion.div>
+            )}
+          </AnimatePresence>
+       
+            {products.length > 0 ? <button
+              id="add-to-bag-button"
+              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-sans-500 text-gray-200 px-2 py-4"
+           onClick={handlePaymentGateway}
+            >
+              {objectVariant ? ` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}` : ""}
+            </button> : ""}
+
         </div>
         <div className="w-full flex justify-center items-center py-6 gap-2">
           <div className="flex justify-center flex-wrap w-[138px] gap-2 lg:gap-6">
@@ -216,7 +293,7 @@ const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
           </div>
         </div>
         <div className="w-full">
-          <QuestionsAnswersHome />
+          <QuestionsAnswersHome cat={objectVariant.cat} />
         </div>
         <div className="w-full text-center text-lg font-sans-500 text-yellow-600">
           + 1.000’s clientes felices

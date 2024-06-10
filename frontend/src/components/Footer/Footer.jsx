@@ -17,16 +17,7 @@ const Footer = () => {
             alt="logo"
             className="w-1/3"
           />
-          <div className="w-full ">
-            <h1 className="text-gray-300 font-plus-500 text-left text-xl">
-            40 años de trayectoria definen nuestra identidad.
-            </h1>
-          </div>
-          <div className="w-full flex justify-start items-center space-x-4">
-            <BiLogoLinkedin className=" text-white text-4xl lg;text-2xl" />
-            <BiLogoFacebook className=" text-white text-4xl lg;text-2xl" />
-            <AiOutlineInstagram className=" text-white text-4xl lg;text-2xl" />
-          </div>
+
         </div>
         <div className="w-full lg:w-[40%] flex flex-wrap justify-center items-center space-y-6">
           <div className="w-full flex justify-start items-center text-left text-3xl text-gray-300">
@@ -43,13 +34,13 @@ const Footer = () => {
               <IoMailOutline className="w-8"
               style={{marginTop: "0.3rem"}}
               />
-              <h1>info@fzobras.com</h1>
+              <h1>mistico.world@hotmail.com</h1>
             </a>
             <a href="/" target="_blank" className="w-full flex justify-start items-start">
               <BsPinMapFill className="w-8"
               style={{marginTop: "0.3rem"}}
               />
-              <h1>Ituzaingó 1409, Piso 6, Oficina 602, Montevideo, Uruguay</h1>
+              <h1> Tucumáns, Argentina</h1>
             </a>
             <a href="/" target="_blank" className="w-full flex justify-start items-start">
               <FaWhatsapp className="w-8"

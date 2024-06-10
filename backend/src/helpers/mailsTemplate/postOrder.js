@@ -81,7 +81,7 @@ const orderTemplate = `
 </head>
 <body>
     <div class="container">
-        <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1717610508/logoTransparent_gdflvq.png" alt="Logo de la empresa" class="logo">
+        <img src="https://acdn.mitiendanube.com/stores/471/341/themes/common/logo-233998329-1649368955-6cb2f7f56a4efcad59a3c2b0cde54bc81649368956-480-0.webp" alt="Logo de la empresa" class="logo">
         <h2>Su transacción ha sido exitosa</h2>
         <p>Gracias por su compra. Su pago ha sido confirmado y su orden está en proceso.</p>
         <div class="shipping-info">
@@ -97,10 +97,10 @@ const orderTemplate = `
             <p><strong>Envío:</strong> %ORDER_SHIPPING_COST%</p>
             <p><strong>Total:</strong> %ORDER_TOTAL%</p>
         </div>
-        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+5493813624693">haciendo click aqui</a>.</p>
+        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+54938124693">haciendo click aqui</a>.</p>
         <p>Atentamente,</p>
-        <p>El equipo de Sitio Sports</p>
-        <p>© 2024 Sitio Sports S.A.S  </p>      
+        <p>El equipo de MISTICO </p>
+        <p>© 2024 MISTICO   </p>      
     </div>
 </body>
 </html>

@@ -19,6 +19,10 @@ const CalendlyFooter = () => {
     };
   }, []);
 
+  const handleScroll = () => {
+    document.getElementById('targetSection').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer
       className={`fixed bottom-0 left-0 w-screen h-[90px] bg-gray-200 flex justify-center border-t border-gray-400 items-center transition-all duration-500 ${
@@ -30,11 +34,12 @@ const CalendlyFooter = () => {
         Tratamiento Anti-Aging Infalible
         </h1>
         <div>
-          <a href="#button-buy">
-            <button className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 button-buy">
+            <button 
+            onClick={handleScroll}
+            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 button-buy">
             Comprar - $32.000
             </button>
-          </a>
+
         </div>
       </div>
     </footer>

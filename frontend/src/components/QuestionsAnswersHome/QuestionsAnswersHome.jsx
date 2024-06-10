@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import "./QuestionsAnswersHome.css";
-const QuestionsAnswersHome = ({ landing }) => {
+import { talles_cargo, talles_jean } from "../../assets";
+const QuestionsAnswersHome = ({ landing, cat }) => {
   const [answer, setAnswer] = useState("");
+  const [viewSizeGuide, setViewSizeGuide] = useState(false);
 
   const handleAnswer = (answerId) => {
     setAnswer((prevAnswer) => (prevAnswer === answerId ? "" : answerId));
+  };
+
+  const handleViewSize = () => {
+    setViewSizeGuide((prev) => !prev);
   };
 
   const QAs = [
@@ -18,19 +24,19 @@ const QuestionsAnswersHome = ({ landing }) => {
     {
       question: "¿Puedo realizar cambios o devoluciones de mi compra?",
       answer:
-        " Sí, ofrecemos cambios y devoluciones dentro de los 30 días posteriores a la recepción del pedido. La prenda debe estar en su estado original, sin usar y con todas las etiquetas adjuntas. Para iniciar un cambio o devolución, por favor contáctanos a través de nuestro formulario de contacto o envíanos un correo a mistico.world@hotmail.com.",
+        "Sí, ofrecemos cambios y devoluciones dentro de los 30 días posteriores a la recepción del pedido. La prenda debe estar en su estado original, sin usar y con todas las etiquetas adjuntas. Para iniciar un cambio o devolución, por favor contáctanos a través de nuestro formulario de contacto o envíanos un correo a mistico.world@hotmail.com.",
       answer_id: "2",
     },
     {
       question: "¿Cómo puedo saber qué talla elegir?",
       answer:
-        "Cada producto tiene una guía de tallas específica disponible en la página del producto. Te recomendamos medir tu cuerpo y comparar tus medidas con nuestra guía para encontrar la talla que mejor te quede. Aca le dejo la GUIA DE TALLES ",
+        "Cada producto tiene una guía de tallas específica disponible en la página del producto. Te recomendamos medir tu cuerpo y comparar tus medidas con nuestra guía para encontrar la talla que mejor te quede. <span class='size-guide-link'>Aca le dejo la <a href='#' onClick='return false;' style='text-decoration: underline;'>GUIA DE TALLES</a></span>",
       answer_id: "3",
     },
     {
       question: "¿Ofrecen envíos gratuitos?",
       answer:
-        "Sí, ofrecemos envíos gratuitos en pedidos superiores a $100 dentro del territorio nacional. Para pedidos internacionales, ofrecemos envío gratuito en compras superiores a $200. También ocasionalmente tenemos promociones especiales con envío gratuito, así que te recomendamos suscribirte a nuestro boletín para estar al tanto de nuestras ofertas.",
+        "Sí, ofrecemos envíos gratuitos a todo el país atravez de OCCA 🇦🇷",
       answer_id: "4",
     },
   ];
@@ -48,7 +54,7 @@ const QuestionsAnswersHome = ({ landing }) => {
       </div> : ""}
       <div className="w-full flex flex-wrap justify-start items-center space-y-2 max-w-[800px]">
         {QAs?.map((qa) => (
-          <>
+          <React.Fragment key={qa.answer_id}>
             <div className="w-full">
               <button
                 className="w-full flex justify-between items-center space-x-2 text-gray-200"
@@ -76,19 +82,35 @@ const QuestionsAnswersHome = ({ landing }) => {
               className={`w-full answer text-xl ${
                 answer === qa.answer_id ? "show" : ""
               }`}
+              dangerouslySetInnerHTML={{__html: qa.answer}}
+              onClick={(e) => {
+                if (e.target.tagName === 'A') {
+                  handleViewSize();
+                }
+              }}
             >
-              <span className="flex-grow text-left font-roboto-300 text-gray-500 text-lg lg:text-xl">
-                {qa.answer}
-              </span>
             </div>
             <div className="w-full flex justify-center ">
               <div className="w-full">
                 <hr className=" border-[1.5px] border-gray-400" />
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
+      {viewSizeGuide && (
+        <div className="fixed -top-4 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-lg">
+            <button
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md"
+              onClick={handleViewSize}
+            >
+              Cerrar
+            </button>
+            <img src={cat === "cargo" ? talles_cargo : talles_jean} alt="guia de talle" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

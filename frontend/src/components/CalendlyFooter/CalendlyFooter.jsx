@@ -36,7 +36,7 @@ const CalendlyFooter = () => {
         <div>
             <button 
             onClick={handleScroll}
-            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 button-buy">
+            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 g button-buy">
             Comprar - $32.000
             </button>
 

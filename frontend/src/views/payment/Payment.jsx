@@ -9,8 +9,7 @@ import { resetCart } from "../../redux/orebiSlice";
 import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
 import formatPrice from "../../utils/formatPrice";
-import Header from "../../components/Header/Header";
-
+import PaymentHeader from "../../components/Header/PaymentHeader";
 const Payment = (props) => {
   const [showDetails, setShowDetails] = useState(false);
   const dispatch = useDispatch();
@@ -215,7 +214,8 @@ const Payment = (props) => {
 
   return (
     <div>
-    <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 pb-20 relative">
+      <PaymentHeader />
+    <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 mt-6 pb-20 relative">
       <div className="lg:hidden w-full lg:w-1/3 p-2 gap-4 flex flex-col">
         <button
           className="flex justify-between items-center text-left  text-gray-700 py-2  rounded"
@@ -225,13 +225,13 @@ const Payment = (props) => {
             <IoIosArrowDown
               className={`${
                 showDetails ? "rotate-180" : ""
-              } text-[#fc148c] duration-300`}
+              } text-yellow-700 duration-300`}
             />
             {showDetails
               ? "Ocultar Detalle de Compra"
               : "Ver Detalle de Compra"}
           </div>
-          <span className="font-bold tracking-wide text-xl text-[#fc148c]">
+          <span className="font-bold tracking-wide text-xl text-yellow-700">
             ${shipmentPlusTotal}
           </span>
         </button>
@@ -295,7 +295,7 @@ const Payment = (props) => {
             ) : (
               ""
             )}
-              <p className="flex items-center justify-between text-pink-600 py-1.5 text-xl font-bold">
+              <p className="flex items-center justify-between text-yellow-700 py-1.5 text-xl font-bold">
                 Total
                 <span className="font-bold tracking-wide text-xl font-titleFont">
                   ${formatPrice(shipmentPlusTotal)}
@@ -341,7 +341,7 @@ const Payment = (props) => {
 
         <div className="w-full flex justify-start ">
           <div className="w-full lg:w-3/5">
-            <hr className="border-[1.5px] border-[#e279c84d]" />
+            <hr className="border-[1.5px] border-yellow-700" />
           </div>
         </div>
         <div className="w-full">
@@ -380,7 +380,7 @@ const Payment = (props) => {
 
         <div className="w-full flex justify-start ">
           <div className="w-full lg:w-3/5">
-            <hr className="border-[1.5px] border-[#e279c84d]" />
+            <hr className="border-[1.5px] border-yellow-700" />
           </div>
         </div>
 
@@ -453,7 +453,7 @@ const Payment = (props) => {
         </div>
         <div className="w-full flex justify-start ">
           <div className="w-full lg:w-3/5">
-            <hr className="border-[1.5px] border-[#e279c84d]" />
+            <hr className="border-[1.5px] border-yellow-700" />
           </div>
         </div>
 
@@ -595,7 +595,7 @@ const Payment = (props) => {
             ) : (
               ""
             )}
-            <p className="flex items-center justify-between text-pink-600  py-1.5 text-xl font-bold">
+            <p className="flex items-center justify-between text-yellow-700  py-1.5 text-xl font-bold">
               Total
               <span className="font-bold tracking-wide text-xl font-titleFont">
                 ${formatPrice(shipmentPlusTotal)}

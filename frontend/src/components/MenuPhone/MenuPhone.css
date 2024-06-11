@@ -8,7 +8,7 @@
     z-index: 10;
 
   }
-  
+/*   
   .menu-phone a {
     text-align: left;
     font-size: 1.8rem; 
@@ -17,14 +17,8 @@
   .menu-phone a:hover {
     color: #672398 ;
   }
-  
-  .menu-phone button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    margin-top: 20px;
-  }
+   */
+
   .menu-phone button:hover {
     color: #672398 ;
   }

@@ -22,6 +22,7 @@ import {
 import SizesSelector from "../SizesSelector/SizesSelector";
 import variants from "../../utils/variants";
 import SizeGuide from "../SizesSelector/SizeGuide";
+import VariantPicker from "../VariantPicker/VariantPicker";
 
 const ProductDetail = ({ homeVariant, handleVariantDetail }) => {
   const products = useSelector((state) => state.orebiReducer.cartProducts);
@@ -110,7 +111,7 @@ const updatedObjectVariant = {
         size: selectedSize,
         image: objectVariant.images[0],
         price: 60000,
-        color: "rojo",
+        color: objectVariant.color,
       })
     );
     setSelectedItems(newSelectedItems);
@@ -119,9 +120,7 @@ const updatedObjectVariant = {
   const handlePaymentGateway = () => {
     history.push({
       pathname: '/payment',
-      state: {
-        item: selectedItems,
-      },
+
     });
   };
 
@@ -194,25 +193,7 @@ const updatedObjectVariant = {
         )}
       </div>
 
-        {variants ? (
-          <div className="flex py-4 w-full gap-2">
-            {variants?.map((variant) => (
-              <div
-                key={variant.id}
-                className={`cursor-pointer border-gray-300 border-[1px] ${
-                  variant.id !== selectedVariant
-                    ? ""
-                    : "border-b-2 border-yellow-700"
-                }`}
-                onClick={() => handleSelectedVariant(variant.id)}
-              >
-                <img className="w-20" src={variant.images[0]} alt="variant" />
-              </div>
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
+        <VariantPicker handleSelectedVariant={handleSelectedVariant} selectedVariant={selectedVariant} />
         <div className="w-full flex flex-wrap">
          <div className="w-full flex justify-start items-center gap-x-3 mb-2">
          <p className="text-left font-sans-500"> Elegí un talle</p>

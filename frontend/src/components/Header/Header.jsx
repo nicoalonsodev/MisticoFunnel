@@ -7,19 +7,27 @@ import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 
 import "./Header.css";
-const Header = () => {
+const Header = ({handleHomeVariant}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const products = useSelector((state) => state.orebiReducer.cartProducts);
 
   useEffect(() => {
     if (products.length === 0) {
       setMenuOpen(false);
+    } else if (products.length > 0){
+      setMenuOpen(true)
     }
   }, [products]);
 
-
+const handleVariant = (variant) => {
+  setMenuOpen(false);
+  handleHomeVariant(variant)
+}
   const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
+    if(products.length !== 0){setMenuOpen(!menuOpen)
+    } else {
+  alert("Debes agregar un pantalon al carrito!")
+    };
   };
   return (
     <div>
@@ -72,7 +80,7 @@ const Header = () => {
           <div
           
           >
-            <MenuPhone handleMenuToggle={handleMenuToggle} />
+            <MenuPhone handleMenuToggle={handleMenuToggle} handleVariant={handleVariant} />
           </div>
         )}
       </div>

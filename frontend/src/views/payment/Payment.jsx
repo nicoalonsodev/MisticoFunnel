@@ -67,7 +67,7 @@ const Payment = (props) => {
     },
   ];
   useEffect(() => {
-    setProductInfo(location.state.item);
+    setProductInfo(products);
     setResume(true);
     setShippmentCharge(0);
   }, [location]);
@@ -391,7 +391,7 @@ const Payment = (props) => {
               {/* <div
                 className={`${
                   shipping === "estandar"
-                    ? "border-[3px] border-[#e46dc7] shadow-sm"
+                    ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex justify-between p-4 cursor-pointer hover:bg-gray-50`}
                 onClick={() => handleClickShippingType("estandar")}
@@ -414,7 +414,7 @@ const Payment = (props) => {
               <div
                 className={`${
                   shipping === "estandar"
-                    ? "border-[3px] border-[#e46dc7] shadow-sm"
+                    ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex justify-between p-4 cursor-pointer hover:bg-gray-50`}
                 onClick={() => handleClickShippingType("estandar")}
@@ -464,7 +464,7 @@ const Payment = (props) => {
               <div
                 className={`${
                   paymentMethod === "tb"
-                    ? "border-[3px] border-[#e46dc7] shadow-sm"
+                    ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex flex-wrap  p-4 cursor-pointer hover:bg-gray-50`}
                 onClick={() => setPaymentMethod("tb")}
@@ -475,7 +475,7 @@ const Payment = (props) => {
                       <h1 className="text-lg">Transferencia Bancaria</h1>
                     </div>
                   </div>
-                  <div className="font-semibold">15% de descuento</div>
+                  <div className="font-semibold">10% de descuento</div>
                 </div>
                 {paymentMethod === "tb" ? (
                   <div className="py-3 text-left text-md text-gray-500">
@@ -488,7 +488,7 @@ const Payment = (props) => {
               <div
                 className={`${
                   paymentMethod === "mp"
-                    ? "border-[3px] border-[#e46dc7] shadow-sm"
+                    ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex flex-wrap p-4 cursor-pointer hover:bg-gray-50`}
                 onClick={() => setPaymentMethod("mp")}

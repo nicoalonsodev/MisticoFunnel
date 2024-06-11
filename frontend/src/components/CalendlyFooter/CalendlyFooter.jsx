@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-
+import { scrollToSection } from "../../utils/redirectHomeScroll";
+import { useSelector } from "react-redux";
+import { useHistory } from 'react-router-dom';
 const CalendlyFooter = () => {
+  const history = useHistory();
   const [isVisible, setIsVisible] = useState(false);
-
+  const products = useSelector((state) => state.orebiReducer.cartProducts);
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > window.innerHeight * 1.5) {
@@ -19,9 +22,12 @@ const CalendlyFooter = () => {
     };
   }, []);
 
-  const handleScroll = () => {
-    document.getElementById('targetSection').scrollIntoView({ behavior: 'smooth' });
-  };
+  const handleNavigatePayment = () => {
+    history.push({
+      pathname: '/payment',
+
+    });
+  }
 
   return (
     <footer
@@ -30,14 +36,12 @@ const CalendlyFooter = () => {
       }`}
     >
       <div className="flex justify-center items-center gap-x-6">
-        <h1 className="hidden lg:block text-3xl font-plus-400 text-gray-800">
-        Tratamiento Anti-Aging Infalible
-        </h1>
+        
         <div>
             <button 
-            onClick={handleScroll}
+            onClick={products.length === 0 ? scrollToSection : handleNavigatePayment}
             className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 g button-buy">
-            Comprar - $32.000
+            {products.length === 0 ? "Seleccionar un talle" : products.length === 1 ? "Ir a Comprar $60,000" : "Ir a Comprar $102,000"}
             </button>
 
         </div>

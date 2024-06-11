@@ -25,10 +25,11 @@ const LandingPage = () => {
   const handleHomeVariant = (variant) => {
     setHomeVariant(variant);
   };
+
   const images = [img, img2, img3];
   return (
     <div>
-      <Header />
+      <Header handleHomeVariant={handleHomeVariant} />
       <div className="px-4 md:px-6 lg:px-10 xl:px-24 space-y-16 bg-gray-50 pb-12 pt-8 lg:pt-32">
         <ProductDetail
           homeVariant={homeVariant}

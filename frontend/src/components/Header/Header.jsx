@@ -41,7 +41,7 @@ const handleVariant = (variant) => {
           </a>
         </div>
         <button
-          className="w-1/2 flex justify-center items-center pl-20 relative"
+          className="w-1/2 flex justify-center items-center  relative"
           onClick={handleMenuToggle}
         >
           <IoCartOutline className="text-gray-200 w-10 h-10 " width={64} />

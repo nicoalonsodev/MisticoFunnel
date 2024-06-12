@@ -32,9 +32,9 @@ const discount = transaction_details.total_paid_amount * 0.15;
     // Mapear items para crear el HTML
     const itemsHtml = items.map(item => {
       return itemTemplate
-        .replace(/%PRODUCT_IMAGE_URL%/g, item.variant.imgUrl[0])
+        .replace(/%PRODUCT_IMAGE_URL%/g, item.image)
         .replace(/%PRODUCT_NAME%/g, item.name)
-        .replace(/%PRODUCT_COLOR%/g, item.variant.variant)
+        .replace(/%PRODUCT_COLOR%/g, item.color)
         .replace(/%PRODUCT_SIZE%/g, item.size)
         .replace(/%PRODUCT_PRICE%/g, `$${formatPrice(item.price)}`);
     }).join('');

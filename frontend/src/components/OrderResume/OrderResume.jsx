@@ -23,7 +23,7 @@ const OrderResume = () => {
   }, [products]);
 
   return (
-    <div className="hidden relative lg:flex w-full p-4 gap-4">
+    <div className="flex relative w-full p-4 gap-4">
       <div className="sticky top-0 border-gray-700 w-full flex flex-col gap-4">
         <h1 className="text-2xl font-semibold text-left">Resumen Del Pedido</h1>
         <div>

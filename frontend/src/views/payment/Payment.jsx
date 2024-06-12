@@ -10,7 +10,10 @@ import { motion } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
 import formatPrice from "../../utils/formatPrice";
 import PaymentHeader from "../../components/Header/PaymentHeader";
+import { useHistory } from "react-router-dom";
+
 const Payment = (props) => {
+  const history = useHistory();
   const [showDetails, setShowDetails] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.orebiReducer.cartProducts);
@@ -18,10 +21,10 @@ const Payment = (props) => {
   const [email, setEmail] = useState("");
   const [contactReady, setContactReady] = useState(false);
   const [addressReady, setAddressReady] = useState(false);
-  const [readyToPay, setReadyToPay] = useState(false);
+  const [readyToPay, setReadyToPay] = useState(true);
   const [productInfo, setProductInfo] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState(""); // el tipo de metodo de pago, mp o tb
-  const [shipping, setShipping] = useState(""); //el tipo de envio
+  const [shipping, setShipping] = useState("Domicilio"); //el tipo de envio
   const [shippmentCharge, setShippmentCharge] = useState(0); //el costo del envio
   const [shipmentPlusTotal, setShipmentPlusTotal] = useState(0); //el total mas el costo del envio
   const [totalAmt, setTotalAmt] = useState(""); //el total de los productos
@@ -74,31 +77,29 @@ const Payment = (props) => {
 
   useEffect(() => {
     const price = products.length === 1 ? 60000 : 102000;
-    setTransferDiscount(products.length === 1 ? 0 : 18000)
-      setTotalAmt(products.length === 1 ? 60000 : 120000);
-      setShipmentPlusTotal(products.length === 1 ? 60000 : 102000)
+    setTransferDiscount(products.length === 1 ? 0 : 18000);
+    setTotalAmt(products.length === 1 ? 60000 : 120000);
+    setShipmentPlusTotal(products.length === 1 ? 60000 : 102000);
   }, [products]);
 
-  // useEffect(() => {
-  //   let finalAmount;
-  //   if (paymentMethod === "tb") {
-  //     if (shippmentCharge === "Gratis") {
-  //       finalAmount = totalAmt * 0.85;
-  //     } else {
-  //       finalAmount = (totalAmt + shippmentCharge) * 0.85;
-  //     }
-  //     let disc = finalAmount * 0.15;
-  //     setTransferDiscount(disc);
-  //   } else {
-  //     if (totalAmt !== "" && totalAmt > 45000) {
-  //       finalAmount = totalAmt;
-  //     } else {
-  //       finalAmount = totalAmt + shippmentCharge;
-  //     }
-  //   }
-
-  //   setShipmentPlusTotal(finalAmount);
-  // }, [totalAmt, shippmentCharge, paymentMethod]);
+  const handlePaymentChange = (payment) => {
+    if (payment === "tb") {
+      setShipmentPlusTotal(products.length === 1 ? 54000 : 91800);
+      setTransferDiscount(products.length === 1 ? 6000 : 28200);
+    } else {
+      setTransferDiscount(products.length === 1 ? 0 : 18000);
+      setShipmentPlusTotal(products.length === 1 ? 60000 : 102000);
+    }
+    setPaymentMethod(payment);
+  };
+  
+  useEffect(() => {
+    setShowDetails(true);
+    const timer = setTimeout(() => {
+      setShowDetails(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handlePay = async () => {
     if (paymentMethod === "mp") {
@@ -109,7 +110,7 @@ const Payment = (props) => {
           order
         );
         const preferenceId = response.data.id;
-
+        console.log(response.data);
         const redirectUrl = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${preferenceId}`;
         dispatch(resetCart());
         window.location.href = redirectUrl;
@@ -154,9 +155,9 @@ const Payment = (props) => {
           postOrder
         );
         const order_number = responsePost.data.order_number;
-        // navigate(
-        //   `/orden-transferencia-confirmada/${order_number}?monto=${shipmentPlusTotal}`
-        // );
+        history.push(
+          `/order-transferencia/${order_number}?monto=${shipmentPlusTotal}`
+        );
         dispatch(resetCart());
         setProcessing(false);
       } catch (error) {
@@ -166,10 +167,10 @@ const Payment = (props) => {
     }
   };
 
-  const handleSubmitContact = (email) => {
-    setEmail(email);
-    setContactReady(true);
-  };
+  // const handleSubmitContact = (email) => {
+  //   setEmail(email);
+  //   setContactReady(true);
+  // };
   const handleAddress = (addressForm) => {
     setOrder({
       productInfo: productInfo,
@@ -197,118 +198,107 @@ const Payment = (props) => {
     }
     setPaymentMethod("");
   };
-
-  // useEffect(() => {
-  //   let finalAmount;
-  //   if (shippmentCharge !== 0) {
-  //     finalAmount = totalAmt + shippmentCharge;
-  //   } else {
-  //     finalAmount = totalAmt;
-  //   }
-  //   setShipmentPlusTotal(finalAmount);
-  //   setOrder((prevOrder) => ({
-  //     ...prevOrder,
-  //     shipment: shippmentCharge,
-  //   }));
-  // }, [totalAmt, shippmentCharge]);
+const handlePaynt = () => {
+  alert("Debe guardar su información de contacto y elegir su método de pago")
+}
 
   return (
     <div>
       <PaymentHeader />
-    <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 mt-6 pb-20 relative">
-      <div className="lg:hidden w-full lg:w-1/3 p-2 gap-4 flex flex-col">
-        <button
-          className="flex justify-between items-center text-left  text-gray-700 py-2  rounded"
-          onClick={() => setShowDetails(!showDetails)}
-        >
-          <div className="flex items-center  gap-2">
-            <IoIosArrowDown
-              className={`${
-                showDetails ? "rotate-180" : ""
-              } text-yellow-700 duration-300`}
-            />
-            {showDetails
-              ? "Ocultar Detalle de Compra"
-              : "Ver Detalle de Compra"}
-          </div>
-          <span className="font-bold tracking-wide text-xl text-yellow-700">
-            ${shipmentPlusTotal}
-          </span>
-        </button>
-
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{
-            height: showDetails ? "auto" : 0,
-            opacity: showDetails ? 1 : 0,
-          }}
-          className="overflow-hidden lg:overflow-visible lg:h-auto lg:opacity-100  "
-        >
-          <div className="sticky top-0 border-gray-700 w-full flex flex-col gap-4 mb-10">
-            <h1 className="text-2xl font-semibold text-left">
-              Resumen Del Pedido
-            </h1>
-            <div className="w-full gap-y-4">
-              {products?.map((product) => (
-                <div key={product.id} className="flex justify-between gap-6">
-                  <div className="w-24">
-                    <img
-                      className="w-full"
-                      src={product.image}
-                      alt={product.name}
-                    />
-                  </div>
-                  <div className="w-full text-gray-800">
-                    <p>
-                      {product.name} {product.color}
-                      <span>
-                        ({product.size}) x{product.quantity}
-                      </span>
-                    </p>
-                    <p>${product.price} c/u</p>
-                  </div>
-                </div>
-              ))}
+      <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 mt-6 pb-20 relative">
+        <div className="lg:hidden w-full lg:w-1/3 p-2 gap-4 flex flex-col">
+          <button
+            className="flex justify-between items-center text-left  text-gray-700 py-2  rounded"
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            <div className="flex items-center  gap-2">
+              <IoIosArrowDown
+                className={`${
+                  showDetails ? "rotate-180" : ""
+                } text-yellow-700 duration-300`}
+              />
+              {showDetails
+                ? "Ocultar Detalle de Compra"
+                : "Ver Detalle de Compra"}
             </div>
-            <div>
-              <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
-                Subtotal
-                <span className="font-semibold tracking-wide font-titleFont">
-                  ${formatPrice(totalAmt)}
-                </span>
-              </p>
-              <p className="flex items-center justify-between py-1.5 text-lg font-medium">
-                Costo de envío
-                <span className="font-semibold tracking-wide font-titleFont">
-                  {shipping === "estandar"
-                    ? "Gratis"
-                    : `$${formatPrice(shippmentCharge)}`}
-                </span>
-              </p>
-              { transferDiscount !== 0 ? (
-              <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
-                Descuento
-                <span className="font-semibold tracking-wide font-titleFont">
-                  -${formatPrice(transferDiscount)}
-                </span>
-              </p>
-            ) : (
-              ""
-            )}
-              <p className="flex items-center justify-between text-yellow-700 py-1.5 text-xl font-bold">
-                Total
-                <span className="font-bold tracking-wide text-xl font-titleFont">
-                  ${formatPrice(shipmentPlusTotal)}
-                </span>
-              </p>
-              {/* <p className="text-sm">(IVA incluido ${ivaAmount})</p> */}
-            </div>
-          </div>
-        </motion.div>
-      </div>
+            <span className="font-bold tracking-wide text-xl text-yellow-700">
+              ${shipmentPlusTotal}
+            </span>
+          </button>
 
-      <div className="w-full lg:w-2/3 justify-between space-y-6">
-        <div className="w-full flex flex-wrap justify-start ">
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: showDetails ? "auto" : 0,
+              opacity: showDetails ? 1 : 0,
+            }}
+            className="overflow-hidden lg:overflow-visible lg:h-auto lg:opacity-100  "
+          >
+            <div className="sticky top-0 border-gray-700 w-full flex flex-col gap-4 mb-10">
+              <h1 className="text-2xl font-semibold text-left">
+                Resumen Del Pedido
+              </h1>
+              <div className="w-full gap-y-4">
+                {products?.map((product, index) => (
+                  <div key={index} className="flex justify-between gap-6">
+                    <div className="w-24">
+                      <img
+                        className="w-full"
+                        src={product.image}
+                        alt={product.name}
+                      />
+                    </div>
+                    <div className="w-full text-gray-800">
+                      <p>
+                        {product.name} {product.color}
+                        <span>
+                          ({product.size}) x{product.quantity}
+                        </span>
+                      </p>
+                      <p>${product.price} c/u</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
+                  Subtotal
+                  <span className="font-semibold tracking-wide font-titleFont">
+                    ${formatPrice(totalAmt)}
+                  </span>
+                </p>
+                <p className="flex items-center justify-between py-1.5 text-lg font-medium">
+                  Costo de envío
+                  <span className="font-semibold tracking-wide font-titleFont">
+                    {shipping === "estandar"
+                      ? "Gratis"
+                      : `$${formatPrice(shippmentCharge)}`}
+                  </span>
+                </p>
+                {transferDiscount !== 0 ? (
+                  <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
+                    Descuento
+                    <span className="font-semibold tracking-wide font-titleFont">
+                      -${formatPrice(transferDiscount)}
+                    </span>
+                  </p>
+                ) : (
+                  ""
+                )}
+                <p className="flex items-center justify-between text-yellow-700 py-1.5 text-xl font-bold">
+                  Total
+                  <span className="font-bold tracking-wide text-xl font-titleFont">
+                    ${formatPrice(shipmentPlusTotal)}
+                  </span>
+                </p>
+                {/* <p className="text-sm">(IVA incluido ${ivaAmount})</p> */}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="w-full lg:w-2/3 justify-between space-y-6">
+          {/* <div className="w-full flex flex-wrap justify-start ">
           <div className="w-full lg:w-1/3">
             <p className="font-bold text-2xl text-left uppercase">
               Tu Contacto
@@ -337,54 +327,63 @@ const Payment = (props) => {
               ""
             )}
           </div>
-        </div>
+        </div> */}
 
-        <div className="w-full flex justify-start ">
+          <div className="w-full flex justify-start ">
+            <div className="w-full lg:w-3/5">
+              <hr className="border-[1.5px] border-yellow-700" />
+            </div>
+          </div>
+          <div className="w-full">
+            <p className="font-bold text-2xl pb-3 uppercase">Tu Dirección</p>
+            <div className="">
+              {!addressReady ? (
+                <AddressForm
+                  handleAddress={handleAddress}
+                  email={email}
+                  payerInfo={order.payerInfo ? order.payerInfo : ""}
+                />
+              ) : (
+                ""
+              )}
+              {addressReady ? (
+                <div className="py-4 text-gray-600">
+                  <h1 className="text-gray-800 font-bold uppercase">
+                    Dirección de envío
+                  </h1>
+                  <div className="h-auto w-auto text-black ">
+                    <button
+                      onClick={handleEditMail}
+                      className="p-2 border-[1px] border-gray-300 rounded-sm hover:bg-gray-700 hover:text-gray-200"
+                    >
+                      Editar
+                    </button>
+                  </div>
+                  <p>{order.payerInfo.email}</p>
+                  <p>{order.payerInfo.payerName}</p>
+                  <p>{order.payerInfo.phone}</p>
+                  <p>{order.payerInfo.zipCode}, AR</p>
+                  <p>{order.payerInfo.state}</p>
+                  <p>{order.payerInfo.city}</p>
+                  <p>{order.payerInfo.street}</p>
+                  <p>{order.payerInfo.streetNumber}</p>
+                  <p>{order.payerInfo.floor}</p>
+                  <p>{order.payerInfo.aclaration}</p>
+                  <p>{order.payerInfo.id}</p>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+
+          {/* <div className="w-full flex justify-start ">
           <div className="w-full lg:w-3/5">
             <hr className="border-[1.5px] border-yellow-700" />
           </div>
-        </div>
-        <div className="w-full">
-          <p className="font-bold text-2xl pb-3 uppercase">Tu Dirección</p>
-          <div className="">
-            {!addressReady && contactReady ? (
-              <AddressForm
-                handleAddress={handleAddress}
-                email={email}
-                payerInfo={order.payerInfo ? order.payerInfo : ""}
-              />
-            ) : (
-              ""
-            )}
-            {addressReady ? (
-              <div className="py-4 text-gray-600">
-                <h1 className="text-gray-800 font-bold uppercase">
-                  Dirección de envío
-                </h1>
-                <p>{order.payerInfo.payerName}</p>
-                <p>{order.payerInfo.phone}</p>
-                <p>{order.payerInfo.zipCode}, AR</p>
-                <p>{order.payerInfo.state}</p>
-                <p>{order.payerInfo.city}</p>
-                <p>{order.payerInfo.street}</p>
-                <p>{order.payerInfo.streetNumber}</p>
-                <p>{order.payerInfo.floor}</p>
-                <p>{order.payerInfo.aclaration}</p>
-                <p>{order.payerInfo.id}</p>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
+        </div> */}
 
-        <div className="w-full flex justify-start ">
-          <div className="w-full lg:w-3/5">
-            <hr className="border-[1.5px] border-yellow-700" />
-          </div>
-        </div>
-
-        <div className="w-full space-y-4">
+          {/* <div className="w-full space-y-4">
           <p className="font-bold text-2xl uppercase">Opciones de Entrega</p>
           {order.payerInfo ? (
             <>
@@ -411,7 +410,7 @@ const Payment = (props) => {
                 </div>
                 <div>Gratis</div>
               </div> */}
-              <div
+          {/* <div
                 className={`${
                   shipping === "estandar"
                     ? "border-[3px] border-yellow-700 shadow-sm"
@@ -450,16 +449,17 @@ const Payment = (props) => {
           ) : (
             ""
           )}
-        </div>
-        <div className="w-full flex justify-start ">
-          <div className="w-full lg:w-3/5">
-            <hr className="border-[1.5px] border-yellow-700" />
-          </div>
-        </div>
+        </div> */}
 
-        <div className="w-full space-y-4">
-          <p className="font-bold text-2xl uppercase">Medio de Pago</p>
-          {readyToPay ? (
+          <div className="w-full flex justify-start ">
+            <div className="w-full lg:w-3/5">
+              <hr className="border-[1.5px] border-yellow-700" />
+            </div>
+          </div>
+
+          <div className="w-full space-y-4">
+            <p className="font-bold text-2xl uppercase">Medio de Pago</p>
+
             <>
               <div
                 className={`${
@@ -467,7 +467,7 @@ const Payment = (props) => {
                     ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex flex-wrap  p-4 cursor-pointer hover:bg-gray-50`}
-                onClick={() => setPaymentMethod("tb")}
+                onClick={() => handlePaymentChange("tb")}
               >
                 <div className="w-full flex justify-between">
                   <div className="">
@@ -491,7 +491,7 @@ const Payment = (props) => {
                     ? "border-[3px] border-yellow-700 shadow-sm"
                     : "border-[1px] border-gray-700"
                 } w-full lg:w-3/5 flex flex-wrap p-4 cursor-pointer hover:bg-gray-50`}
-                onClick={() => setPaymentMethod("mp")}
+                onClick={() => handlePaymentChange("mp")}
               >
                 <div className="w-full flex justify-between">
                   <div className="">
@@ -518,94 +518,99 @@ const Payment = (props) => {
                 )}
               </div>
             </>
-          ) : (
-            ""
-          )}
-          <div className="">
-            {readyToPay ? (
-              <button
-                className={`w-auto h-auto px-4  py-2 uppercase rounded-md bg-gray-800 text-white text-lg mt-4 hover:bg-black duration-300 ${
-                  !paymentMethod ? "cursor-not-allowed opacity-50" : ""
-                }`}
-                onClick={paymentMethod ? handlePay : null}
-                disabled={!paymentMethod}
-              >
-                {processing === true
-                  ? "..."
-                  : paymentMethod === "mp"
-                  ? "Pagar a través de Mercado Pago"
-                  : paymentMethod === "tb"
-                  ? "Realizar pedido con Transferencia"
-                  : "Seleccione una forma de pago"}
-              </button>
-            ) : (
-              ""
-            )}
+
+            <div className="">
+              {readyToPay ? (
+                <button
+                  className={`w-auto h-auto px-4  py-2 uppercase rounded-md bg-gray-800 text-white text-lg mt-4 hover:bg-black duration-300 ${
+                    !paymentMethod ? "cursor-not-allowed opacity-50" : ""
+                  }`}
+                  onClick={paymentMethod && addressReady ? handlePay : handlePaynt }
+                  disabled={!paymentMethod && !addressReady}
+                >
+                  {processing === true
+                    ? "..."
+                    : paymentMethod === "mp"
+                    ? "Pagar a través de Mercado Pago"
+                    : paymentMethod === "tb"
+                    ? "Realizar pedido con Transferencia"
+                    : "Seleccione una forma de pago"}
+                </button>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="hidden relative  lg:flex w-full lg:w-1/3 border-2 border-gray-300 p-4 gap-4">
-        <div className="sticky top-0 border-gray-700 w-full flex flex-col gap-4">
-          <h1 className="text-2xl font-semibold text-left">
-            Resumen Del Pedido
-          </h1>
-          <div className="w-full gap-y-4">
-            {products?.map((product) => (
-              <div className="flex justify-between gap-6">
-                <div className="w-24 ">
-                  <img className="w-full" src={product.image} />
+        <div className="hidden relative  lg:flex w-full lg:w-1/3 border-2 border-gray-300 p-4 gap-4">
+          <div className="sticky top-0 border-gray-700 w-full flex flex-col gap-4">
+            <h1 className="text-2xl font-semibold text-left">
+              Resumen Del Pedido
+            </h1>
+            <div className="w-full gap-y-4">
+              {products?.map((product) => (
+                <div className="flex justify-between gap-6">
+                  <div className="w-24 ">
+                    <img className="w-full" src={product.image} />
+                  </div>
+                  <div className="w-full text-gray-800">
+                    <p>
+                      {product.name} {product.color}
+                      <span>
+                        ({product.size}) x{product.quantity}
+                      </span>
+                    </p>
+                    <p>${product.price} c/u</p>
+                  </div>
                 </div>
-                <div className="w-full text-gray-800">
-                  <p>
-                    {product.name} {product.color}
-                    <span>
-                      ({product.size}) x{product.quantity}
-                    </span>
-                  </p>
-                  <p>${product.price} c/u</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div>
-            <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
-              Subtotal
-              <span className="font-semibold tracking-wide font-titleFont">
-                ${formatPrice(totalAmt)}
-              </span>
-            </p>
-            <p className="flex items-center justify-between py-1.5 text-lg font-medium">
-              Costo de envío
-              <span className="font-semibold tracking-wide font-titleFont">
-                {shipping === "estandar"
-                  ? "Gratis"
-                  : shippmentCharge === 0
-                  ? "Gratis"
-                  : `$${formatPrice(shippmentCharge)}`}
-              </span>
-            </p>
-            { transferDiscount !== 0 ? (
+              ))}
+            </div>
+            <div>
               <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
-                Descuento
+                Subtotal
                 <span className="font-semibold tracking-wide font-titleFont">
-                  -${formatPrice(transferDiscount)}
+                  ${formatPrice(totalAmt)}
                 </span>
               </p>
-            ) : (
-              ""
-            )}
-            <p className="flex items-center justify-between text-yellow-700  py-1.5 text-xl font-bold">
-              Total
-              <span className="font-bold tracking-wide text-xl font-titleFont">
-                ${formatPrice(shipmentPlusTotal)}
-              </span>
-            </p>
-            {/* <p className="text-sm">(IVA incluido ${ivaAmount})</p> */}
+              <p className="flex items-center justify-between py-1.5 text-lg font-medium">
+                Costo de envío
+                <span className="font-semibold tracking-wide font-titleFont">
+                  {shipping === "estandar"
+                    ? "Gratis"
+                    : shippmentCharge === 0
+                    ? "Gratis"
+                    : `$${formatPrice(shippmentCharge)}`}
+                </span>
+              </p>
+              {transferDiscount !== 0 ? (
+                <div className="py-1.5">
+                  <p className="flex items-center justify-between border-b-0  text-lg font-medium">
+                    Descuento
+                    <span className="font-semibold tracking-wide font-titleFont">
+                      -${formatPrice(transferDiscount)}
+                    </span>
+                  </p>
+                  <span className="text-xs text-gray-500">
+                    {paymentMethod === "tb"
+                      ? "(10% de descuento por transferencia + descuento promocional)"
+                      : "(Descuento promocional)"}
+                  </span>
+                </div>
+              ) : (
+                ""
+              )}
+              <p className="flex items-center justify-between text-yellow-700  py-1.5 text-xl font-bold">
+                Total
+                <span className="font-bold tracking-wide text-xl font-titleFont">
+                  ${formatPrice(shipmentPlusTotal)}
+                </span>
+              </p>
+              {/* <p className="text-sm">(IVA incluido ${ivaAmount})</p> */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

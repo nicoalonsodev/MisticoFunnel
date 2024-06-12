@@ -64,7 +64,7 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
 
   const [form, setForm] = useState({
     payerName: "",
-    email: email,
+    email: "",
     phone: "",
     zipCode: "",
     state: "",
@@ -184,6 +184,14 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
   return (
     <div className="space-y-4">
       <CustomInput
+        label="Email"
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        placeholder=""
+        error={formSubmitted && errors.email}
+      />
+      <CustomInput
         label="Nombre"
         name="payerName"
         value={form.payerName}
@@ -266,11 +274,12 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
         placeholder=""
       />
       <CustomInput
-        label="Cuil o Cuit"
+        label="DNI, Cuil o Cuit"
         name="client_id"
         value={form.client_id}
         onChange={handleChange}
         placeholder=""
+        error={formSubmitted && errors.client_id}
       />
 
       <div className="w-full flex justify-start">
@@ -280,7 +289,7 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
           onClick={handleSubmit}
           className="p-4 bg-gray-800 text-gray-100 py-2 rounded-md block text-lg  hover:opacity-80"
         >
-          Continuar
+          Guardar Información
         </button>
       </div>
     </div>

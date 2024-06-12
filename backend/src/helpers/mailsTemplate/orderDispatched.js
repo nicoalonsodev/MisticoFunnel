@@ -51,7 +51,7 @@ const orderTemplate = `
 </head>
 <body>
     <div class="container">
-        <img src="https://acdn.mitiendanube.com/stores/471/341/themes/common/logo-233998329-1649368955-6cb2f7f56a4efcad59a3c2b0cde54bc81649368956-480-0.webp" alt="Logo de la empresa" class="logo">
+        <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718158019/mistico_yw5tla.png" alt="Logo de la empresa" class="logo">
         <h2>Su orden ha sido %STATUS%. Tu código de seguimiento es: %TRACK_ID%</h2>
         <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+549383624693">haciendo click aqui</a> .</
         <p>Atentamente,</p>

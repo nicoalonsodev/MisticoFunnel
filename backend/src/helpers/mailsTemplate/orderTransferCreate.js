@@ -77,7 +77,7 @@ const orderTemplate = `
 </head>
 <body>
     <div class="container">
-        <img src="https://acdn.mitiendanube.com/stores/471/341/themes/common/logo-233998329-1649368955-6cb2f7f56a4efcad59a3c2b0cde54bc81649368956-480-0.webp" alt="Logo de la empresa" class="logo">
+        <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718158019/mistico_yw5tla.png" alt="Logo de la empresa" class="logo">
         <h2>Tu orden de compra: #%ORDER_NUMBER%</h2>
         <p>Estamos esperando la confirmación del pago de %ORDER_TOTAL% para confirmar su compra, en cuanto recibamos el comprobante de pago vía Whatsapp, confirmaremos la misma.</p>
          <div class="account-info">

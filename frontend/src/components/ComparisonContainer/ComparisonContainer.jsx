@@ -35,7 +35,7 @@ const ComparisonContainer = () => {
                 key={index}
                 className="w-auto flex flex-wrap justify-center items-start gap-4 rounded-xl overflow-hidden bg-gray-100 p-4 shadow-lg mb-3"
               >
-                <h1 className="font-sans-800 text-center w-full text-3xl text-gray-800-700 ">
+                <h1 className="font-sans-800 text-center w-full text-2xl lg:text-3xl text-gray-800-700 ">
                   {reason.title}
                 </h1>
                 <img src={reason.img} alt="img_before" className="rounded-xl" />

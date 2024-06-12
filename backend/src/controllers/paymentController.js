@@ -27,12 +27,11 @@ const createOrder = async (req, res) => {
 
     const items = products?.map((product, index) => ({
       title: product.name,
-      unit_price: Number(index === 1 ? product.price - 19500 : product.price),
+      unit_price: Number(index === 1 ? product.price - 18000 : product.price),
       currency_id: "ARS",
       quantity: product.quantity,
       description: product.size,
       id: product.id,
-      category_id: Number(product.variant.id),
     }));
     
     // if(shippingCost){
@@ -43,6 +42,7 @@ const createOrder = async (req, res) => {
     //     quantity: 1,
     //   });
     // }
+
     const body = {
        items: items,
       shipments: {
@@ -68,23 +68,25 @@ const createOrder = async (req, res) => {
       },
       external_reference: order_id,
      
-      notification_url: "https://b25a-131-161-239-212.ngrok-free.app/webhook",
+      notification_url: "https://0eb1-131-161-239-212.ngrok-free.app/webhook",
       // notification_url: "https://sitiosports-production.up.railway.app/webhook",
       payment_methods: {
         installments: 12 // Número máximo de cuotas permitidas (opcional)
       },
       back_urls: {
-        success: `https://www.sitiosports.com/orden-mp-confirmada/4`,
+        success: `http://localhost:3000/`,
         // failure: `https://www.sitiosports.com/orden-mp-rechazada/${order_number}`,
         // pending: `https://www.sitiosports.com/orden-mp-pendiente/${order_number}`,
       },
       auto_return: "approved",
     };
 
+
     const result = await preference.create({
       body,
     });
 
+    console.log(result);
     res.status(200).json(result);
   } catch (error) {
     return res.status(500).json({ message: error.message });

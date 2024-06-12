@@ -31,11 +31,11 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
           : products.length === 2
           ? "w-full lg:w-[34%]"
           : ""
-      } h-full bg-white border-2 border-gray-400 fixed top-0 right-0 font-poppins-400 p-2 lg:p-6 overflow-y-auto`}
+      } h-full bg-white border-2 border-gray-400 fixed top-0 right-0 font-montserrat-400 p-2 lg:p-6 overflow-y-auto`}
 
     >
       <div className="w-full py-2 flex justify-between">
-        <h1 className="text-gray-800 text-3xl font-sans-700">
+        <h1 className="text-gray-800 text-3xl font-montserrat-700">
           Carrito Promocional
         </h1>
         <div className="">
@@ -62,7 +62,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
       </div>
       <a
         href='/payment'
-        className='w-full rounded-xl bg-yellow-700 hover:bg-yellow-500 text-xl text-gray-100 flex justify-center items-center py-2'>
+        className='w-full rounded-xl bg-yellow-700 hover:bg-yellow-500 text-xl text-gray-100 font-montserrat-400 flex justify-center items-center py-2'>
         <p>{` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}`}</p>
       </a>
       {products.length !== 2 ? <VariantPicker cart={true} handleCartVariant={handleCartVariant} /> : ""}

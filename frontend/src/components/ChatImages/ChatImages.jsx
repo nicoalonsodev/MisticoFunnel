@@ -19,8 +19,8 @@ const ChatImages = () => {
         <h1 className="w-full text-center  text-yellow-700 font-roboto-400 text-xl">
           Personas reales, resultados reales
         </h1>
-        <p className="w-full text-center text-gray-900 font-roboto-500 text-4xl">
-          Lo que opinan nuestros clientes.
+        <p className="w-full text-center text-gray-900 font-sans-600 text-4xl">
+          Lo que opinan <span className="text-yellow-600">nuestros clientes</span>.
         </p>
       </div>
       <div className="w-full h-auto flex flex-wrap justify-center space-y-2">

@@ -46,7 +46,7 @@ const handleVariant = (variant) => {
         >
           <IoCartOutline className="text-gray-200 w-10 h-10 " width={64} />
           {products.length > 0 ? (
-            <div className="w-[20px] h-[20px] rounded-full bg-red-400 text-white absolute -top-2 right-0 flex justify-center items-center text-sm">
+            <div className="w-[20px] h-[20px] rounded-full bg-red-400 text-white absolute -top-2 right-8 flex justify-center items-center text-sm">
               {products.length === 1 ? "1" : products.length === 2 ? "2" : ""}
             </div>
           ) : (

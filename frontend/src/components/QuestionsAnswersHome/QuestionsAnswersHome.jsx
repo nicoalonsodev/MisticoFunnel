@@ -45,10 +45,10 @@ const QuestionsAnswersHome = ({ landing, cat }) => {
     <div id="q&a" className={`w-full flex flex-wrap justify-center items-center gap-y-12 ${landing ? "py-10" : "py-0"}`}>
       { landing ? 
       <div className="w-full flex flex-wrap justify-center">
-        <h1 className="w-full text-center  text-yellow-700 font-roboto-400 text-xl">
+        <h1 className="w-full text-center  text-yellow-700 font-montserrat-400 text-xl">
           Respuestas a tus preguntas
         </h1>
-        <p className="w-full text-center text-gray-900 font-roboto-500 text-4xl">
+        <p className="w-full text-center text-gray-900 font-montserrat-500 text-4xl">
           Preguntas frecuentes
         </p>
       </div> : ""}
@@ -64,7 +64,7 @@ const QuestionsAnswersHome = ({ landing, cat }) => {
                     : handleAnswer("");
                 }}
               >
-                <span className="w-3/4 flex-grow text-left font-roboto-400 text-gray-700 text-lg lg:text-xl">
+                <span className="w-3/4 flex-grow text-left font-montserrat-400 text-gray-700 text-lg lg:text-xl">
                   {qa.question}
                 </span>
                 <IoIosArrowDown

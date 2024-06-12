@@ -39,7 +39,7 @@ const ComparisonContainer = () => {
                   {reason.title}
                 </h1>
                 <img src={reason.img} alt="img_before" className="rounded-xl" />
-                <p className="w-full text-center text-md">
+                <p className="w-full text-center text-md font-montserrat-400">
                   {reason.description}
                 </p>
               </div>

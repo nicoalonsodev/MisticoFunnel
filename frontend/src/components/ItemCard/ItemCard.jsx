@@ -13,7 +13,7 @@ const ItemCard = ({ item }) => {
   const products = useSelector((state) => state.orebiReducer.cartProducts);
   const dispatch = useDispatch();
   return (
-    <div className="w-full mb-4 border ">
+    <div className="w-full mb-4 border">
       <div className="flex justify-between col-span-3 gap-2">
         <div className="flex gap-4 text-gray-70">
           <img
@@ -23,22 +23,23 @@ const ItemCard = ({ item }) => {
           />
           <div className="py-0">
             <div className="flex items-start ">
-              <h1 className="font-light uppercase text-md lg:text-lg">
+              <h1 className="font-light uppercase text-md lg:text-lg font-montserrat-400">
                 {item.name}
               </h1>
             </div>
             <div className="flex items-start ">
-              <h1 className="font-light uppercase text-lg">
+              <h1 className="font-light uppercase text-sm">
                 {item.color}
               </h1>
             </div>
-            <div className="flex-col items-center text-left justify-start lg:justify-start  gap-y-6 mdl:gap-0">
+            <div className="flex w-2/3 items-center justify-start text-sm font-normal">
+                Talle {item.size}
+              </div>
+            <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
               <div className="flex w-1/3 items-center text-lg font-bold">
                 ${formatPrice(item.quantity * item.price)}
               </div>
-              <div className="flex w-2/3 items-center justify-start text-md font-normal">
-                Talle {item.size}
-              </div>
+           
               {/* <div className="w- border-gray-500 flex items-center justify-start gap-4 text-lg my-4">
                 <p>{item.quantity}</p>
               </div> */}

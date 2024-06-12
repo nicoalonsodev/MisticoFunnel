@@ -32,7 +32,7 @@ const VariantPicker = ({
       {variants ? (
         <>
           {cart ? (
-           <div className="block my-4 py-4 w-[100%] border-t-[1px] border-yellow-600 text-center">
+           <div className="block my-4 py-4 w-[100%] border-t-[1px] border-yellow-600 text-center font-montserrat-300 text-balance">
             <p>Agrega otro pantalon y tenes 30% de descuento!</p>
               <Slider {...settings} >
                 {variants.map((variant, index) => (

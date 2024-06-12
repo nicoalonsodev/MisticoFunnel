@@ -29,27 +29,27 @@ const OrderResume = () => {
         <div>
           <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
             Subtotal
-            <span className="font-semibold tracking-wide font-titleFont">
+            <span className="font-semibold tracking-wide font-montserrat-500">
               ${formatPrice(subtotal)}
             </span>
           </p>
           <p className="flex items-center justify-between py-1.5 text-lg font-medium">
             Costo de envío
-            <span className="font-semibold tracking-wide font-titleFont">
+            <span className="font-semibold tracking-wide font-montserrat-500">
               Gratis
             </span>
           </p>
           {products.length === 2 && (
             <p className="flex items-center justify-between border-b-0 py-1.5 text-lg font-medium">
               Descuento
-              <span className="font-semibold tracking-wide font-titleFont">
+              <span className="font-semibold tracking-wide font-montserrat-500">
                 -${formatPrice(18000)}
               </span>
             </p>
           )}
           <p className="flex items-center justify-between text-yellow-700 py-1.5 text-xl font-bold">
             Total
-            <span className="font-bold tracking-wide text-xl font-titleFont">
+            <span className="font-bold tracking-wide text-xl font-montserrat-500">
               ${formatPrice(total)}
             </span>
           </p>

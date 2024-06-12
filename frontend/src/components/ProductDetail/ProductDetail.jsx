@@ -125,7 +125,7 @@ const updatedObjectVariant = {
   };
 
   return (
-    <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px] mt-14">
+    <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px] mt-14 lg:mt-0">
       <div id="targetSection" className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
         <div className="hidden lg:block sticky top-0">
           <img
@@ -158,7 +158,7 @@ const updatedObjectVariant = {
           <h1 className="text-gray-500 text-xl mx-2">(+1000’s Reviews)</h1>
         </div> */}
         <div className="w-full flex justify-start items-start">
-          <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-sans-800">
+          <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-montserrat-700">
             {objectVariant.name}
           </h1>
         </div>
@@ -166,12 +166,12 @@ const updatedObjectVariant = {
           New 🏆 best clothing brand 2024
         </div>
         <div className="w-full flex justify-start items-start ">
-          <h1 className="text-gray-700 font-sans-500 text-left text-xl">
+          <h1 className="text-gray-700 font-montserrat-500 text-left text-xl">
           <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
           </h1>
         </div>
         <div className="w-full flex justify-start items-start">
-          <ul className="text-left text-lg lg:text-md text-gray-600">
+          <ul className="text-left text-lg lg:text-sm text-gray-600 font-montserrat-400">
             <li>🍑 Buen calze</li>
             <li>✨ Última tendencia de la moda.</li>
             <li>🌱 Combina con todo.</li>
@@ -205,14 +205,14 @@ const updatedObjectVariant = {
         <div className="w-full flex flex-wrap gap-3 py-4">
           <div className="flex items-center w-full">
             <div className="flex-grow rounded-md h-[2px] bg-yellow-700"></div>
-            <div className="px-2 lg:px-4 font-sans-400 text-sm lg:text-md">Comprá y ahorrá un 30% en el 2do Jean</div>
+            <div className="px-2 lg:px-4 font-montserrat-400 text-sm lg:text-md">Comprá y ahorrá un 30% en el 2do Jean</div>
             <div className="flex-grow h-[2px] bg-yellow-700"></div>
           </div>
         </div>
         <div className="w-full">
           <div className="flex space-x-2 justify-center items-center">
-            <p className="font-sans-400 pb-2">
-              Shipping 2 to 5 days from Buenos Aires, AR
+            <p className="font-montserrat-400 pb-2">
+            Envio de 2 a 5 Dias desde Buenos Aires
             </p>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg"
@@ -224,7 +224,7 @@ const updatedObjectVariant = {
   
            {products.length < 2 ? <button
               id="add-to-bag-button"
-              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-xl lg:text-2xl font-sans-500 text-gray-200 px-2 py-4"
+              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-xl lg:text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
               onClick={handleAddToCart}
          
             >
@@ -234,7 +234,7 @@ const updatedObjectVariant = {
             <AnimatePresence>
             {showAlert && (
               <motion.div
-                className="alert border flex justify-start text-center rounded-md bg-yellow-700 text-white p-2 text-sm lg:text-lg mt-2"
+                className="alert font-montserrat-500 border flex justify-start text-center rounded-md bg-yellow-700 text-white p-2 text-sm lg:text-lg mt-2"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -246,19 +246,22 @@ const updatedObjectVariant = {
        
             {products.length > 0 ? <button
               id="add-to-bag-button"
-              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-sans-500 text-gray-200 px-2 py-4"
+              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
            onClick={handlePaymentGateway}
             >
               {objectVariant ? ` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}` : ""}
             </button> : ""}
 
         </div>
-        <div className="w-full flex justify-center items-center py-6 gap-2">
-          <div className="flex justify-center flex-wrap w-[138px] gap-2 lg:gap-6">
+        <div className="w-full flex justify-center items-center py-6 gap-2 font-montserrat-300">
+          <div className="flex justify-center items-start flex-wrap w-[138px] gap-2 lg:gap-6">
             <div className="w-14 lg:w-20">
               <img src={shipping} alt="shipping" className="w-full" />
             </div>
+            <div className="flex items-start justify-center">
             <h1 className="text-center text-sm">Envio gratis</h1>
+            </div>
+            
           </div>
           <div className="flex justify-center flex-wrap w-32 gap-2">
             <div className="w-14 lg:w-20">
@@ -276,7 +279,7 @@ const updatedObjectVariant = {
         <div className="w-full">
           <QuestionsAnswersHome cat={objectVariant.cat} />
         </div>
-        <div className="w-full text-center text-lg font-sans-500 text-yellow-600">
+        <div className="w-full text-center text-lg font-montserrat-500 text-yellow-600">
           + 1.000’s clientes felices
         </div>
       </div>

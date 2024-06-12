@@ -68,13 +68,13 @@ const createOrder = async (req, res) => {
       },
       external_reference: order_id,
      
-      notification_url: "https://0eb1-131-161-239-212.ngrok-free.app/webhook",
-      // notification_url: "https://sitiosports-production.up.railway.app/webhook",
+     // notification_url: "https://0eb1-131-161-239-212.ngrok-free.app/webhook",
+      notification_url: "https://misticofunnel-production.up.railway.app/webhook",
       payment_methods: {
         installments: 12 // Número máximo de cuotas permitidas (opcional)
       },
       back_urls: {
-        success: `http://localhost:3000/`,
+        success: `https://mistico-funnel-two.vercel.app/order-mp/${order_number}`,
         // failure: `https://www.sitiosports.com/orden-mp-rechazada/${order_number}`,
         // pending: `https://www.sitiosports.com/orden-mp-pendiente/${order_number}`,
       },

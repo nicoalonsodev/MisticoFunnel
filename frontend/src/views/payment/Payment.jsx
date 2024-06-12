@@ -106,7 +106,7 @@ const Payment = (props) => {
       try {
         setProcessing(true);
         const response = await axios.post(
-          "http://localhost:3001/create-order",
+          "https://misticofunnel-production.up.railway.app/create-order",
           order
         );
         const preferenceId = response.data.id;
@@ -151,7 +151,7 @@ const Payment = (props) => {
           shipping_type: shipping,
         };
         const responsePost = await axios.post(
-          "http://localhost:3001/order",
+          "https://misticofunnel-production.up.railway.app/order",
           postOrder
         );
         const order_number = responsePost.data.order_number;

@@ -34,7 +34,7 @@ const OrderDetailBdd = () => {
     } else {
       setLoading(true);
       axios
-        .put(`http://localhost:3001/order/${order.id}`, changes)
+        .put(`https://misticofunnel-production.up.railway.app/order/${order.id}`, changes)
         .then((response) => {
           // Maneja la respuesta de la solicitud, por ejemplo, muestra una notificación de éxito
           alert("Cambios guardados con éxito");

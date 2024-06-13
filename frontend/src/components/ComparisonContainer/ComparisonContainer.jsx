@@ -50,7 +50,7 @@ const ComparisonContainer = () => {
       <div className="hidden w-full lg:flex flex-wrap justify-center items-center">
         <div className="w-full flex justify-start lg:justify-center overflow-x-auto gap-x-10">
           {reasons?.map((reason, index) => (
-            <div key={index} className="bg-gray-100 hover:bg-yellow-50 shadow-xl rounded-lg p-4 w-3/4 lg:w-1/4 flex-shrink-0 space-y-2">
+            <div key={index} className="bg-gray-100 hover:bg-yellow-50 shadow-xl rounded-lg p-4 w-3/4 lg:w-[30%] flex-shrink-0 space-y-2">
               <h1 className="h-20 font-sans-800 text-center w-full text-2xl text-gray-800">
                 {reason.title}
               </h1>

@@ -59,5 +59,28 @@ const variants = [
     color: "Jean negro",
       cat: "jean"
   },
+  {
+    id: 6,
+    name: "Cargo Enigma",
+    images: [
+      "https://acdn.mitiendanube.com/stores/471/341/products/3d04a362-f41d-474c-96a8-9af38d66cdb0-17e6669e45f6279ff017175175505448-1024-1024.webp",
+      "https://acdn.mitiendanube.com/stores/471/341/products/a6555697-21ed-4b5b-b673-99892cc8b59e-1d1a1d04fa8395573b17175175577886-1024-1024.webp",
+      "https://acdn.mitiendanube.com/stores/471/341/products/af00aa07-287b-40ab-aa08-f95a0ddc12a3-025053b82f24fb125917175175650370-1024-1024.webp",
+    ],
+    color: "Negro",
+      cat: "cargo"
+  },
+  {
+    id: 7,
+    name: "Cargo Carpinter Verde",
+    images: [
+      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.12_k4hrk7.jpg",
+      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.13_qkvvie.jpg",
+      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.13_1_ipev03.jpg",
+      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.12_2_gs8n9q.jpg",
+    ],
+    color: "Verde",
+      cat: "cargo"
+  },
 ];
 export default variants;

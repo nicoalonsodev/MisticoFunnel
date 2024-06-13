@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 const Payment = (props) => {
   const history = useHistory();
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.orebiReducer.cartProducts);
   const [resume, setResume] = useState(false);
@@ -93,13 +93,13 @@ const Payment = (props) => {
     setPaymentMethod(payment);
   };
   
-  useEffect(() => {
-    setShowDetails(true);
-    const timer = setTimeout(() => {
-      setShowDetails(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   setShowDetails(true);
+  //   const timer = setTimeout(() => {
+  //     setShowDetails(false);
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const handlePay = async () => {
     if (paymentMethod === "mp") {
@@ -205,13 +205,13 @@ const handlePaynt = () => {
   return (
     <div>
       <PaymentHeader />
-      <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 mt-6 pb-20 relative">
+      <div className="flex flex-wrap w-screen h-full justify-start items-start px-2 lg:px-32 xl:px-44 mt-0 lg:mt-6 pb-20 relative">
         <div className="lg:hidden w-full lg:w-1/3 p-2 gap-4 flex flex-col">
           <button
-            className="flex justify-between items-center text-left  text-gray-700 py-2  rounded"
+            className="flex justify-between items-center text-left  text-gray-700 py-0 lg:py-2  rounded"
             onClick={() => setShowDetails(!showDetails)}
           >
-            <div className="flex items-center  gap-2">
+            {/* <div className="flex items-center  gap-2">
               <IoIosArrowDown
                 className={`${
                   showDetails ? "rotate-180" : ""
@@ -220,7 +220,7 @@ const handlePaynt = () => {
               {showDetails
                 ? "Ocultar Detalle de Compra"
                 : "Ver Detalle de Compra"}
-            </div>
+            </div> */}
             <span className="font-bold tracking-wide text-xl text-yellow-700">
               ${shipmentPlusTotal}
             </span>

@@ -48,12 +48,12 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
       <div className="w-full bg-gray-300 text-center py-1 px-2 text-sm rounded-md text-black font-semibold flex justify-center">
         🚚 ENVÍO GRATIS 🚚
       </div>
-      <div>
+      {/* <div>
         <p className="text-yellow-600 mb-2 text-center text-balance font-semibold my-3 lg:my-2 text-sm lg:text-lg">
-          ¡Aprovecha esta oferta exclusiva! Solo en este enlace, obtén tu segundo jean con un 30% de descuento.
+        Usar mi cupón de 30% DE DESCUENTO en la segunda unidad!
         </p>
-      </div>
-      <div className="flex flex-wrap gap-x-2">
+      </div> */}
+      <div className="flex flex-wrap gap-x-2 mt-4">
         {products.map((item) => (
           <div className="w-full" key={item._id}>
             <ItemCard item={item} />

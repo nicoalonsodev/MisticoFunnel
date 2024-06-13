@@ -16,25 +16,25 @@ const QuestionsAnswersHome = ({ landing, cat }) => {
 
   const QAs = [
     {
-      question: "¿Cuál es el tiempo estimado de entrega de mi pedido?",
+      question: "⏳¿Cuál es el tiempo estimado de entrega de mi pedido?",
       answer:
         "El tiempo de entrega varía según tu ubicación. Generalmente, los pedidos nacionales tardan entre 3 a 7 días hábiles en llegar.",
       answer_id: "1",
     },
     {
-      question: "¿Puedo realizar cambios o devoluciones de mi compra?",
+      question: "♻️¿Puedo realizar cambios o devoluciones de mi compra?",
       answer:
         "Sí, ofrecemos cambios y devoluciones dentro de los 30 días posteriores a la recepción del pedido. La prenda debe estar en su estado original, sin usar y con todas las etiquetas adjuntas. Para iniciar un cambio o devolución, por favor contáctanos a través de nuestro formulario de contacto o envíanos un correo a mistico.world@hotmail.com.",
       answer_id: "2",
     },
     {
-      question: "¿Cómo puedo saber qué talla elegir?",
+      question: "👖¿Cómo puedo saber qué talla elegir?",
       answer:
         "Cada producto tiene una guía de tallas específica disponible en la página del producto. Te recomendamos medir tu cuerpo y comparar tus medidas con nuestra guía para encontrar la talla que mejor te quede. <span class='size-guide-link'>Aca le dejo la <a href='#' onClick='return false;' style='text-decoration: underline;'>GUIA DE TALLES</a></span>",
       answer_id: "3",
     },
     {
-      question: "¿Ofrecen envíos gratuitos?",
+      question: "🚚¿Ofrecen envíos gratuitos?",
       answer:
         "Sí, ofrecemos envíos gratuitos a todo el país atravez de OCCA 🇦🇷",
       answer_id: "4",

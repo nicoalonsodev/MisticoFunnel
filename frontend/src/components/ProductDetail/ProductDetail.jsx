@@ -165,13 +165,9 @@ const updatedObjectVariant = {
         <div className="w-full flex justify-start items-start text-[12px]">
           New 🏆 best clothing brand 2024
         </div>
-        <div className="w-full flex justify-start items-start ">
-          <h1 className="text-gray-700 font-montserrat-500 text-left text-xl">
-          <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
-          </h1>
-        </div>
+      
         <div className="w-full flex justify-start items-start">
-          <ul className="text-left text-lg lg:text-sm text-gray-600 font-montserrat-400">
+          <ul className="text-left text-md lg:text-md text-gray-600 font-montserrat-400">
             <li>🍑 Buen calze</li>
             <li>✨ Última tendencia de la moda.</li>
             <li>🌱 Combina con todo.</li>
@@ -202,6 +198,12 @@ const updatedObjectVariant = {
           <SizesSelector handleSize={handleSize} selectedSize={selectedSize} />
         </div>
        
+        <div className="w-full flex justify-start items-start ">
+          <h1 className="text-gray-700 font-montserrat-600 text-left text-xl">
+          <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
+          </h1>
+        </div>
+
         <div className="w-full flex flex-wrap gap-3 py-4">
           <div className="flex items-center w-full">
             <div className="flex-grow rounded-md h-[2px] bg-yellow-700"></div>

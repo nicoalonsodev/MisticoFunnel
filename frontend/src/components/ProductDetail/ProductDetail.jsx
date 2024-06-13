@@ -125,7 +125,7 @@ const updatedObjectVariant = {
   };
 
   return (
-    <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px] mt-14 lg:mt-0">
+    <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px] mt-14 lg:mt-0 overflow-hidden">
       <div id="targetSection" className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
         <div className="hidden lg:block sticky top-0">
           <img

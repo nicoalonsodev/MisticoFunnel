@@ -19,7 +19,7 @@ const ComparisonContainer = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap justify-center items-center space-y-12">
+    <div className="w-full flex flex-wrap justify-center items-center space-y-12 overflow-hidden">
       <div className="w-full flex flex-wrap justify-center space-y-4">
         <h1 className="w-full text-center  text-gray-700 font-sans-600 text-balance text-3xl lg:text-4xl px-0 lg:px-20">
           Las <span className="text-yellow-700">3 razones</span> por la que van

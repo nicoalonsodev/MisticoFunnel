@@ -1,18 +1,25 @@
 import React from "react";
-
+import { rev1, rev2, rev3, rev4, rev5 } from "../../assets";
 const ChatImages = () => {
   const chatImages = [
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-12.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-5.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-4.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-8.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-12.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-5.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-4.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
-    "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
-  ];
+rev1,
+rev2,
+rev3,
+rev4,
+rev5
+  ]
+  // const chatImages = [
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-12.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-5.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-4.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-8.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-12.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-5.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-4.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
+  //   "https://www.agefit.com/_next/image?url=%2Freviews%2Freview-1.jpg&w=640&q=75",
+  // ];
   return (
     <div className="flex flex-wrap justify-center items-center space-y-10">
       <div className="w-full flex flex-wrap justify-center">

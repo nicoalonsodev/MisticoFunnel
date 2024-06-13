@@ -17,7 +17,7 @@ const MyCarousel = () => {
     prevArrow: <SamplePrevArrow />
   };
   return (
-    <div className="flex justify-center pt-0 pb-8 lg:py-8 w-[100%]">
+    <div className="flex justify-center pt-0 pb-0 lg:pb-8 lg:py-8 w-[100%]">
           <div  className="flex justify-center">
             <img src={images[0]} alt="" className="rounded-lg" />
           </div>

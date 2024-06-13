@@ -1,8 +1,9 @@
 import React from "react";
 import StatementList from ".././ProgressBar/ProgressBar";
+
 const DescriptionPercentage = () => {
   return (
-    <div className="flex flex-wrap justify-between items-start h-auto lg:h-[550px] xl:space-x-0">
+    <div className="flex flex-wrap justify-center items-start h-auto lg:h-[550px] xl:space-x-0 ">
       <div className="w-full lg:w-[50%] flex flex-wrap justify-start items-start space-y-4">
         {/* <h2 className="w-full font-roboto-400 text-xl text-center lg:text-left text-yellow-700">
           Estudio Clinico
@@ -11,12 +12,15 @@ const DescriptionPercentage = () => {
           Somos <span className="text-yellow-600">fabricantes</span> por eso
           podemos tener
         </h1>
-        <div className="flex lg:hidden overflow-hidden px-10">
-          <img
-            src="https://www.agefit.com/_next/image?url=%2Fproduct-serum-planas-2.png&w=750&q=75"
-            alt=""
+        <div className="flex lg:hidden overflow-hidden ">
+          <video
+            src="https://res.cloudinary.com/dtf3dfpnw/video/upload/v1718197349/Dise%C3%B1o_sin_t%C3%ADtulo_5_wvt9ju.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full rounded-xl"
-          />
+          ></video>
         </div>
         <p className="font-montserrat-400 ">
           En nuestra fábrica, cada prenda refleja nuestro compromiso con la
@@ -31,12 +35,15 @@ const DescriptionPercentage = () => {
         </p>
         <StatementList />
       </div>
-      <div className="hidden lg:flex justify-end w-[50%] overflow-hidden h-full rounded-xl">
-        <img
-          src="https://www.agefit.com/_next/image?url=%2Fproduct-serum-planas-2.png&w=750&q=75"
-          alt=""
+      <div className="hidden lg:flex justify-center w-[50%] overflow-hidden h-full rounded-xl">
+        <video
+          src="https://res.cloudinary.com/dtf3dfpnw/video/upload/v1718197349/Dise%C3%B1o_sin_t%C3%ADtulo_5_wvt9ju.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="h-full object-cover rounded-xl"
-        />
+        ></video>
       </div>
     </div>
   );

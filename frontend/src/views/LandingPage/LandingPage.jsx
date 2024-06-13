@@ -30,7 +30,7 @@ const LandingPage = () => {
   return (
     <div>
       <Header handleHomeVariant={handleHomeVariant} />
-      <div className="px-4 md:px-6 lg:px-10 xl:px-24 space-y-16 bg-gray-50 pb-12 pt-8 lg:pt-32">
+      <div className="px-4 md:px-6 lg:px-10 xl:px-24 space-y-8 lg:space-y-16 bg-gray-50 pb-12 pt-8 lg:pt-32">
         <ProductDetail
           homeVariant={homeVariant}
           handleVariantDetail={handleHomeVariant}
@@ -40,8 +40,7 @@ const LandingPage = () => {
           <OutfitCarousel images={images} />
         </div>
       </div>
-      {/* <Flyer /> */}
-      <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-50 py-12 space-y-6">
+      <div className="px-4 md:px-6 lg-px-0 xl:px-24 bg-gray-50 py-12 space-y-6 lg:space-y-20">
         <DescriptionPercentage />
         <ChatImages />
       </div>

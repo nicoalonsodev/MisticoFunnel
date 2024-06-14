@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { logoTransparent } from "../../assets/index";
 import axios from "axios";
+
 const OrderDetailBdd = () => {
   const [isChanging, setIsChanging] = useState(false);
   const { id } = useParams();
@@ -10,8 +11,9 @@ const OrderDetailBdd = () => {
   const [prevOrder, setPrevOrder] = useState("");
   const orders = useSelector((state) => state.orebiReducer.orders);
   const [changes, setChanges] = useState({});
-  const [laoding, setLoading] = useState(false);
-  
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
   useEffect(() => {
     if (orders) {
       const foundOrder = orders.find((order) => order.id === id);
@@ -26,6 +28,36 @@ const OrderDetailBdd = () => {
     }
   }, [orders]);
 
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (isChanging) {
+        const message =
+          "Tienes cambios sin guardar. ¿Seguro que quieres salir? Perderás los cambios si sales.";
+        e.returnValue = message; // Requerido para algunos navegadores
+        return message; // Requerido para otros navegadores
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [isChanging]);
+
+  const handleNavigation = (nextLocation) => {
+    if (isChanging) {
+      const confirmLeave = window.confirm(
+        "Tienes cambios sin guardar. ¿Quieres salir sin guardar los cambios?"
+      );
+      if (confirmLeave) {
+        setIsChanging(false);
+        history.push(nextLocation);
+      }
+    } else {
+      history.push(nextLocation);
+    }
+  };
+
   const handleSaveChanges = () => {
     if (changes.status === "Enviado" && !changes.track_id) {
       alert(
@@ -34,7 +66,7 @@ const OrderDetailBdd = () => {
     } else {
       setLoading(true);
       axios
-        .put(`http://localhost:3001/order/${order.id}`, changes)
+        .put(`https://misticofunnel-production.up.railway.app/order/${order.id}`, changes)
         .then((response) => {
           // Maneja la respuesta de la solicitud, por ejemplo, muestra una notificación de éxito
           alert("Cambios guardados con éxito");
@@ -76,12 +108,14 @@ const OrderDetailBdd = () => {
     setOrder(prevOrder);
     setIsChanging(!isChanging);
   };
+
   const productQuantity = order.items ? order.items?.length : "";
+
   return (
     <>
       <div className="px-32 py-10">
         <div className="w-full flex justify-between">
-          <a href="/tabla-de-ordenes">
+          <a href="/tabla-de-ordenes" onClick={(e) => { e.preventDefault(); handleNavigation('/tabla-de-ordenes'); }}>
             <img className="w-20" src={logoTransparent} alt="" />
           </a>
           <div>
@@ -99,11 +133,7 @@ const OrderDetailBdd = () => {
               onClick={!isChanging ? handleChanging : handleSaveChanges}
               className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
             >
-              {!isChanging
-                ? "Realizar Cambios"
-                : laoding
-                ? "cargando..."
-                : "Guardar"}
+              {!isChanging ? "Realizar Cambios" : loading ? "cargando..." : "Guardar"}
             </button>
           </div>
         </div>
@@ -133,6 +163,7 @@ const OrderDetailBdd = () => {
                       <option value="Pago pendiente">Pago pendiente</option>
                       <option value="Aprobado">Aprobado</option>
                       <option value="Enviado">Enviado</option>
+                      <option value="Entregado">Entregado</option>
                     </select>
                     {order.status === "Enviado" ? (
                       <div>
@@ -143,7 +174,7 @@ const OrderDetailBdd = () => {
                           id="track_id"
                           onChange={handleChange}
                           value={order.track_id}
-                          autocomplete="track_id"
+                          autoComplete="track_id"
                           className="border-[1px] border-gray-700"
                         />
                       </div>
@@ -161,19 +192,16 @@ const OrderDetailBdd = () => {
                 )}
               </div>
               <div className="flex flex-col justify-start text-md">
-                <h1 className="font-semibold text-lg">
-                  Informacion de Contacto{" "}
-                </h1>
+                <h1 className="font-semibold text-lg">Informacion de Contacto</h1>
                 <p>{order.email}</p>
                 <p>{order.phone}</p>
                 <p>Id: {order.client_id}</p>
               </div>
               <div className="flex flex-col justify-start text-md">
-                <h1 className="font-semibold text-lg"> Dirección de Envío </h1>
+                <h1 className="font-semibold text-lg">Dirección de Envío</h1>
                 <p>{order.name}</p>
                 <p>
-                  {order.shipment.street_name} {order.shipment.street_number}{" "}
-                  {order.shipment.floor}
+                  {order.shipment.street_name} {order.shipment.street_number} {order.shipment.floor}
                 </p>
                 <p>
                   {order.shipment.city_name}, {order.shipment.state_name}
@@ -185,9 +213,9 @@ const OrderDetailBdd = () => {
             <div className="w-1/2 space-y-2">
               <div className="w-2/3 h-auto border-[1px] border-gray-500 rounded-lg space-y-4 p-4 flex flex-wrap justify-center items-center">
                 {order.items?.map((item) => (
-                  <div className="w-full flex justify-between ">
+                  <div className="w-full flex justify-between " key={item.id}>
                     <div className="w-20 ">
-                      <img className="w-full" src={item.image} />
+                      <img className="w-full" src={item.image} alt={item.name} />
                     </div>
                     <div className="w-auto text-gray-800">
                       <p>
@@ -211,8 +239,8 @@ const OrderDetailBdd = () => {
                     value={order.admin_comment}
                     autoComplete="admin_comment"
                     className="border-[1px] border-gray-400 rounded-lg p-1"
-                    rows="4" 
-                    cols="50" 
+                    rows="4"
+                    cols="50"
                   />
                 </div>
               ) : (

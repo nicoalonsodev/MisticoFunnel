@@ -20,10 +20,10 @@ const AfterMp = () => {
               Whatsapp{" "}
               <a
                 className="underline hover:text-yellow-700"
-                href="https://wa.me/+5493813624693"
+                href="https://wa.me/+5493812227982"
                 target="_blank"
               >
-                (54 9 3813624693)
+                (+54 9 3812 22-7982)
               </a>
               o a nuestro correo mistico.world@hotmail.com. También le pedimos amablemente que nos indique el número de
               orden de su compra.

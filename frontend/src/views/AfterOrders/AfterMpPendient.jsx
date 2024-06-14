@@ -28,7 +28,7 @@ const AfterMpPendient = () => {
             </a>
             <p>
               Ante cualquier duda puede contactarse con nosotros por Whatsapp al
-              numero 3213322345 o a nuestro correo electronico
+              numero +54 9 3812 22-7982 o a nuestro correo electronico
               mistico.world@hotmail.com. Estamos a su disposicion
             </p>
           </div>

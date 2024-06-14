@@ -53,7 +53,7 @@ const orderTemplate = `
     <div class="container">
         <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718158019/mistico_yw5tla.png" alt="Logo de la empresa" class="logo">
         <h2>Su orden ha sido %STATUS%</h2>
-        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+5493824693">haciendo click aqui</a>  .</p>
+        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+5493812227982">haciendo click aqui</a>  .</p>
         <p>Al momento de despachar su pedido, le enviaremos la información detalladamente por est emedio.</p>
         <p>Atentamente,</p>
         <p>El equipo de MISTICO </p>

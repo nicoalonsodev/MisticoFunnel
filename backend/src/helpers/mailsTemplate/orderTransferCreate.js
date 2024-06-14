@@ -82,12 +82,11 @@ const orderTemplate = `
         <p>Estamos esperando la confirmación del pago de %ORDER_TOTAL% para confirmar su compra, en cuanto recibamos el comprobante de pago vía Whatsapp, confirmaremos la misma.</p>
          <div class="account-info">
             <p><strong>Medio de pago:</strong> Transferencia bancaria (Recuerda enviar el comprobante)</p>
-            <p><strong>NOMBRE DEL TITULAR:</strong> Avril Agostina Zarate</p>
-            <p><strong>CBU:</strong> 0110012930001214331679</p>
-            <p><strong>ALIAS:</strong> AvrilZaratte</p>
-            <p><strong>CUIL/CUIT:</strong> 27-45418611-2</p>
-            <p><strong>BANCO:</strong> Banco de la Nación Argentina</p>
-            <p>Pasar comprobante a <a href="https://wa.me/+54913624693">+54 9 3813624693</a> o <a href="mailto:mistico.world@hotmail.com">mistico.world@hotmail.com</a></p>
+            <p><strong>NOMBRE DEL TITULAR:</strong> Mi Estilo Indumentaria Sas</p>
+            <p><strong>CBU:</strong> 000003100050407011174</p>
+            <p><strong>ALIAS:</strong> MISTICO.ROPA</p>
+            <p><strong>CUIT:</strong> 30-71709153-8</p>
+            <p>Pasar comprobante a <a href="https://wa.me/+5493812227982">+54 9 3812227982</a> o <a href="mailto:mistico.world@hotmail.com">mistico.world@hotmail.com</a></p>
         </div>
         <div class="shipping-info">
           

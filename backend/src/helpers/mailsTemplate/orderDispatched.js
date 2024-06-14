@@ -53,7 +53,7 @@ const orderTemplate = `
     <div class="container">
         <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718158019/mistico_yw5tla.png" alt="Logo de la empresa" class="logo">
         <h2>Su orden ha sido %STATUS%. Tu código de seguimiento es: %TRACK_ID%</h2>
-        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+549383624693">haciendo click aqui</a> .</
+        <p>Si tiene alguna consulta o necesita más información, no dude en comunicarse con nuestro equipo de atención al cliente respondiendo a esta direccion de correo o a nuestro whatsapp <a href="https://wa.me/+5493812227982">haciendo click aqui</a> .</
         <p>Atentamente,</p>
         <p>El equipo de MISTICO </p>
         <p>© 2024 MISTICO </p>

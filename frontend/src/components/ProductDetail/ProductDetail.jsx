@@ -255,7 +255,7 @@ const updatedObjectVariant = {
             </button> : ""}
 
         </div>
-        <div className="w-full flex justify-center items-center py-6 gap-2 font-montserrat-300">
+        <div className="w-full flex justify-center items-start py-6 gap-2 font-montserrat-300">
           <div className="flex justify-center items-start flex-wrap w-[138px] gap-2 lg:gap-6">
             <div className="w-14 lg:w-20">
               <img src={shipping} alt="shipping" className="w-full" />

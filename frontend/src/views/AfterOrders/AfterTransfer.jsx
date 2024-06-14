@@ -32,15 +32,15 @@ const AfterTransfer = () => {
                 Podes hacer la trasnferencia o depósito en la siguiente cuenta.
               </p>
               <div>
-                <p>TITULAR: PEDRO GONZALEZ</p>
-                <p>CVU: 123456789876554</p>
-                <p>ALIAS: PEDRO.GONZALEZ</p>
-                <p>DNI: 38546333</p>
+                <p>TITULAR: Mi Estilo Indumentaria Sas</p>
+                <p>CVU: 000003100050407011174</p>
+                <p>ALIAS: MISTICO.ROPA</p>
+                <p>CUIT: 30-71709153-8</p>
               </div>
               <p>
                 Por favor enviar comprobante mediante WhatsApp{" "}
-                <a href="https://wa.me/+5493813624693" target="_blank">
-                  (54 9 3813624693)
+                <a href="https://wa.me/+5493812227982" target="_blank">
+                  (+54 9 3812 22-7982)
                 </a>
                 , hasta no enviar el comprobante no es computada la compra. (Por
                 favor si es posible enviar en formato documento, es necesario

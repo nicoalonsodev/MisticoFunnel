@@ -15,6 +15,8 @@ import rev2 from "./reviews/2.jpeg";
 import rev3 from "./reviews/3.jpeg";
 import rev4 from "./reviews/4.jpeg";
 import rev5 from "./reviews/5.jpeg";
+import talle_enigma from "./talle_enigma.jpeg";
+import talle_william from "./talle_william.jpeg";
 export {
     calendar,
     shipping,
@@ -27,6 +29,8 @@ export {
     logoTransparent,
     talles_cargo,
     talles_jean,
+    talle_enigma,
+    talle_william,
     logo,
     rev1,
     rev2,

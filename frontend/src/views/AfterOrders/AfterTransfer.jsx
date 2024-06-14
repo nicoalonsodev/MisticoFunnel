@@ -17,7 +17,7 @@ const AfterTransfer = () => {
       <div className="px-4 lg:px-20 flex justify-center">
         <div className="flex flex-col justify-center items-start py-20 w-full lg:w-2/3 gap-6">
           <h1 className="text-3xl font-normal">
-            Orden de compra: <span className=" text-yellow-700">#{orden}</span>
+            Orden de compra: <span className="order-purschase text-yellow-700">#{orden}</span>
           </h1>
           <div className="flex justify-center items-start">
             <div>

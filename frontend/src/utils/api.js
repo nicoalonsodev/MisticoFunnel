@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchProductsFromBackend = async () => {
   try {
-    const response = await axios.get("https://misticofunnel-production.up.railway.app/products");
+    const response = await axios.get("http://localhost:3001/products");
     return response.data; 
   } catch (error) {
     throw error;
@@ -11,7 +11,7 @@ export const fetchProductsFromBackend = async () => {
 
 export const fetchUsersFromBackend = async () => {
   try {
-    const response = await axios.get("https://misticofunnel-production.up.railway.app/users");
+    const response = await axios.get("http://localhost:3001/users");
     return response.data; 
   } catch (error) {
     throw error;
@@ -20,7 +20,7 @@ export const fetchUsersFromBackend = async () => {
 
 export const fetchOrdersFromBackend = async () => {
   try {
-    const response = await axios.get("https://misticofunnel-production.up.railway.app/orders");
+    const response = await axios.get("http://localhost:3001/orders");
     return response.data; 
   } catch (error) {
     throw error;
@@ -29,16 +29,16 @@ export const fetchOrdersFromBackend = async () => {
 
 export const fetchCommissionsFromBackend = async () => {
   try {
-    const response = await axios.get("https://misticofunnel-production.up.railway.app/commissions");
+    const response = await axios.get("http://localhost:3001/commissions");
     return response.data; 
   } catch (error) {
     throw error;
   }
 };
 
-//https://misticofunnel-production.up.railway.app/
+//http://localhost:3001/
 
-//https://misticofunnel-production.up.railway.app/
+//http://localhost:3001/
 
 const API_URL = 'http://localhost:3001'; // Cambia esto a tu URL del backend
 

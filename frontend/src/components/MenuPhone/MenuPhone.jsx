@@ -62,7 +62,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
       </div>
       <a
         href='/payment'
-        className='w-full rounded-xl bg-yellow-700 hover:bg-yellow-500 text-xl text-gray-100 font-montserrat-400 flex justify-center items-center py-2'>
+        className='checkout-button w-full rounded-xl bg-yellow-700 hover:bg-yellow-500 text-xl text-gray-100 font-montserrat-400 flex justify-center items-center py-2'>
         <p>{` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}`}</p>
       </a>
       {products.length !== 2 ? <VariantPicker cart={true} handleCartVariant={handleCartVariant} /> : ""}

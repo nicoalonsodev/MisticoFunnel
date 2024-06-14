@@ -226,7 +226,7 @@ const updatedObjectVariant = {
   
            {products.length < 2 ? <button
               id="add-to-bag-button"
-              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-xl lg:text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
+              className="add-to-bag-button w-full rounded-md bg-gray-800 hover:bg-yellow-700 duration-300 text-xl lg:text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
               onClick={handleAddToCart}
          
             >
@@ -247,8 +247,8 @@ const updatedObjectVariant = {
           </AnimatePresence>
        
             {products.length > 0 ? <button
-              id="add-to-bag-button"
-              className="w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
+              id="checkout-button"
+              className="checkout-button w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
            onClick={handlePaymentGateway}
             >
               {objectVariant ? ` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}` : ""}

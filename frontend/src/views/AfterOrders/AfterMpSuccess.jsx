@@ -13,7 +13,7 @@ const AfterMp = () => {
             <h1 className="text-xl text-yellow-700 font-semibold">
               Su compra fue exitosa!
             </h1>
-            <p>Muchas gracias por comprar en Sitio Sports</p>
+            <p>Muchas gracias por comprar en Mistico</p>
 
             <p>
               Cualquier consulta puede ser realizada al siguiente numero de
@@ -25,7 +25,7 @@ const AfterMp = () => {
               >
                 (54 9 3813624693)
               </a>
-              , también le pedimos amablemente que nos indique el número de
+              o a nuestro correo mistico.world@hotmail.com. También le pedimos amablemente que nos indique el número de
               orden de su compra.
             </p>
           </div>

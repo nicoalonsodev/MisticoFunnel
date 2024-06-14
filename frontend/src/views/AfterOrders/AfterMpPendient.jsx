@@ -29,7 +29,7 @@ const AfterMpPendient = () => {
             <p>
               Ante cualquier duda puede contactarse con nosotros por Whatsapp al
               numero 3213322345 o a nuestro correo electronico
-              sitiosports@gmail.com. Estamos a su disposicion
+              mistico.world@hotmail.com. Estamos a su disposicion
             </p>
           </div>
         </div>

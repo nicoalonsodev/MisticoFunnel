@@ -149,14 +149,6 @@ const updatedObjectVariant = {
         </div>
       </div>
       <div className="flex flex-wrap h-full justify-start items-start w-full lg:w-1/2 px-0 lg:px-10 space-y-2">
-        {/* <div className="w-full flex h-6">
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <img src={star} alt="star" />
-          <h1 className="text-gray-500 text-xl mx-2">(+1000’s Reviews)</h1>
-        </div> */}
         <div className="w-full flex justify-start items-start">
           <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-montserrat-700">
             {objectVariant.name}

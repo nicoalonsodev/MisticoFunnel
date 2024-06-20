@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import "./QuestionsAnswersHome.css";
-import { talles_cargo, talles_jean } from "../../assets";
+import { talles_cargo, talles_jean, talle_enigma, talle_william } from "../../assets";
 const QuestionsAnswersHome = ({ landing, cat }) => {
   const [answer, setAnswer] = useState("");
   const [viewSizeGuide, setViewSizeGuide] = useState(false);
@@ -36,7 +36,7 @@ const QuestionsAnswersHome = ({ landing, cat }) => {
     {
       question: "🚚¿Ofrecen envíos gratuitos?",
       answer:
-        "Sí, ofrecemos envíos gratuitos a todo el país atravez de OCCA 🇦🇷",
+        "Sí, ofrecemos envíos gratuitos a todo el país a travéz de OCA 🇦🇷",
       answer_id: "4",
     },
   ];
@@ -99,15 +99,21 @@ const QuestionsAnswersHome = ({ landing, cat }) => {
         ))}
       </div>
       {viewSizeGuide && (
-        <div className="fixed -top-4 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-8 rounded-lg">
-            <button
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md"
-              onClick={handleViewSize}
-            >
-              Cerrar
-            </button>
-            <img src={cat === "cargo" ? talles_cargo : talles_jean} alt="guia de talle" />
+        <div className="fixed -top-4 left-0 w-screen h-screen  flex justify-center items-center z-50">
+          <div className="flex flex-wrap bg-white p-8 rounded-lg space-y-2 max-h-[100vh] overflow-y-auto">
+            <div className="w-full">
+              <button
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md"
+                onClick={handleViewSize}
+              >
+                Cerrar
+              </button>
+             <h1 className="text-xl font-montserrat-500 underline"> Guia de Talles</h1>
+            </div>
+            <img className="w-full lg:w-1/3 mr-0 lg:mr-6" src={talles_cargo} alt="guia de talle" />
+            <img className="w-full lg:w-1/3" src={talle_enigma} alt="guia de talle" />
+            <img className="w-full lg:w-1/3 mr-0 lg:mr-6" src={talle_william} alt="guia de talle" />
+            <img className="w-full lg:w-1/3" src={talles_jean} alt="guia de talle" />
           </div>
         </div>
       )}

@@ -11,7 +11,7 @@ const Footer = () => {
       className="w-full flex flex-wrap justify-center items-center py-6 pb-20 bg-black"
     >
       <div className="w-full flex flex-wrap justify-center items-start px-10 sm:px-10 md:px-20 lg:px-28 py-10 space-x-0 lg:space-x-14 space-y-8 lg:space-y-0">
-        <div className="w-full lg:w-[40%] flex flex-wrap justify-start items-center space-y-6">
+        <div className="w-full lg:w-[30%] flex flex-wrap justify-center items-center space-y-6">
           <img
             src={logo}
             alt="logo"
@@ -19,7 +19,7 @@ const Footer = () => {
           />
 
         </div>
-        <div className="w-full lg:w-[40%] flex flex-wrap justify-center items-center space-y-6">
+        {/* <div className="w-full lg:w-[40%] flex flex-wrap justify-center items-center space-y-6">
           <div className="w-full flex justify-start items-center text-left text-3xl text-gray-300">
             <h1>Contacto</h1>
           </div>
@@ -49,7 +49,7 @@ const Footer = () => {
               <h1>+3814455678</h1>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

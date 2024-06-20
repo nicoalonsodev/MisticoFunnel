@@ -40,7 +40,7 @@ const CalendlyFooter = () => {
         <div>
             <button 
             onClick={products.length === 0 ? scrollToSection : handleNavigatePayment}
-            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 g button-buy">
+            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 bg-gray-200 hover:bg-yellow-700 hover:text-gray-100 duration-300 hover:border-yellow-700">
             {products.length === 0 ? "Seleccionar un talle" : products.length === 1 ? "Ir a Comprar $60,000" : "Ir a Comprar $102,000"}
             </button>
 

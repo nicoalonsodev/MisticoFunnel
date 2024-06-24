@@ -163,9 +163,11 @@ const OrdersTable = () => {
       <div className="my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
         <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-6 mt-4 overflow-hidden bg-white shadow-lg px-12">
           <div className="flex justify-start space-x-6 items-center pb-4">
-           <a href="/admin"><img className="w-20" src={logoTransparent} alt="" /></a> 
+            <a href="/admin">
+              <img className="w-20" src={logoTransparent} alt="" />
+            </a>
             <h1 className="text-3xl font-bold text-gray-700">
-              Ordenes Sitio Sports
+              Ordenes Mistico
             </h1>
           </div>
           <div className="flex justify-between">
@@ -320,8 +322,11 @@ const OrdersTable = () => {
                         className={` 
                           ${
                             order.status === "approved" ||
-                            order.status === "Aprobado"
+                            order.status === "Aprobado" ||
+                            order.status === "Enviado"
                               ? "absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                              : order.status === "Entregado"
+                              ? "absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
                               : "absolute inset-0 bg-red-200 opacity-50 rounded-full"
                           }
                         `}

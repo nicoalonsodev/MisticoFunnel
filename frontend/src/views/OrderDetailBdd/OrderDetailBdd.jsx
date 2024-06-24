@@ -160,7 +160,7 @@ const OrderDetailBdd = () => {
                       onChange={handleChange}
                     >
                       <option value="Cancelado">Cancelado</option>
-                      <option value="Pago pendiente">Pago pendiente</option>
+                      <option value="Pago Pendiente">Pago pendiente</option>
                       <option value="Aprobado">Aprobado</option>
                       <option value="Enviado">Enviado</option>
                       <option value="Entregado">Entregado</option>

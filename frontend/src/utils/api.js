@@ -37,8 +37,7 @@ export const fetchCommissionsFromBackend = async () => {
 };
 
 //https://misticofunnel-production.up.railway.app/
-
-//https://misticofunnel-production.up.railway.app/
+// 
 
 const API_URL = 'https://misticofunnel-production.up.railway.app'; // Cambia esto a tu URL del backend
 

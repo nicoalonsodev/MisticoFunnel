@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { up, down } from "../../assets/images";
 import { fetchOrdersFromBackend } from "../../utils/api";
 import { setBackendOrders } from "../../redux/orebiSlice";
-import { logo, logoTransparent } from "../../assets/index";
+import { logoTransparent } from "../../assets/index";
+import OrderFilter from "../../components/OrderFilters/OrderFilters";
+
 const OrdersTable = () => {
   const dispatch = useDispatch();
 
@@ -21,7 +22,23 @@ const OrdersTable = () => {
   }, [dispatch]);
 
   const orders = useSelector((state) => state.orebiReducer.orders);
-  const count = orders?.length;
+  const [filters, setFilters] = useState({
+    Aprobado: true,
+    approved: true,
+    Enviado: true,
+    "Pago Pendiente": true,
+    Cancelado: false,
+  });
+
+  const handleOrderFilter = (name, checked) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: checked,
+    }));
+  };
+
+  const filteredOrders = orders?.filter(order => filters[order.status] === true);
+  const count = filteredOrders?.length;
   const [currentPage, setCurrentPage] = useState(1);
   const [changes, setChanges] = useState({});
   const [isChanging, setIsChanging] = useState(false);
@@ -29,22 +46,6 @@ const OrdersTable = () => {
   const [search, setSearch] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [order, setOrder] = useState("asc");
-
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const accessCode = urlParams.get("code");
-  // useEffect(() => {
-  //   if (isSearching) {
-  //     handleSearchEvent();
-  //   } else {
-  //     if (Object.keys(filter).length !== 0) {
-  //       handleFilter(filter);
-  //     } else {
-  //       if (accessCode) {
-  //         dispatch(getUsers(accessCode, order, currentPage));
-  //       }
-  //     }
-  //   }
-  // }, [dispatch, currentPage]);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -57,14 +58,11 @@ const OrdersTable = () => {
     pageButtons.push(i);
   }
   const lastPage = pageButtons.length - 1;
-  // Calcula el rango de páginas que deseas mostrar alrededor de la página actual.
-  const range = 2; // Por ejemplo, mostrará 2 páginas antes y 2 después de la página actual.
+  const range = 2;
 
-  // Calcula el rango de páginas para mostrar.
-  const startPage = Math.max(currentPage - range, 1); // Evita números negativos.
-  const endPage = Math.min(currentPage + range, totalPages); // Evita exceder el número total de páginas.
+  const startPage = Math.max(currentPage - range, 1);
+  const endPage = Math.min(currentPage + range, totalPages);
 
-  // Crea un arreglo de números de página dentro del rango calculado.
   const pageRange = [];
   for (let i = startPage; i <= endPage; i++) {
     pageRange.push(i);
@@ -75,7 +73,7 @@ const OrdersTable = () => {
       ...prevChanges,
       [userId]: {
         ...prevChanges[userId],
-        checked: !prevChanges[userId]?.checked || false, // Cambia el estado del checkbox
+        checked: !prevChanges[userId]?.checked || false,
       },
     }));
   };
@@ -85,83 +83,15 @@ const OrdersTable = () => {
       ...prevChanges,
       [userId]: {
         ...prevChanges[userId],
-        owner: ownerValue, // Actualiza el valor del campo owner
+        owner: ownerValue,
       },
     }));
   };
 
-  // const handleSaveChanges = () => {
-  //   const usersWithChanges = Object.keys(changes).map((userId) => ({
-  //     id: userId,
-  //     owner: changes[userId].owner,
-  //     checked: changes[userId].checked,
-  //   }));
-  //   axios
-  //     .put("/users", { users: usersWithChanges })
-  //     .then((response) => {
-  //       // Maneja la respuesta de la solicitud, por ejemplo, muestra una notificación de éxito
-  //       alert("Cambios guardados con éxito");
-  //       if (Object.keys(filter).length === 0) {
-  //         dispatch(getUsers(accessCode, order, currentPage));
-  //       } else {
-  //         handleFilter(filter);
-  //       }
-  //       setIsChanging(false);
-  //     })
-  //     .catch((error) => {
-  //       // Maneja errores, muestra una notificación de error, etc.
-  //       console.error("Error al guardar los cambios", error);
-  //       setIsChanging(false);
-  //     });
-  // };
-
-  // const handleChange = () => {
-  //   setIsChanging(true);
-  // };
-
-  // const handleFilter = (e) => {
-  //   if (Object.keys(e).length > 0) {
-  //     axios
-  //       .post(`/filter?code=${accessCode}&page=${currentPage}`, e)
-  //       .then((res) => {
-  //         const users = res.data;
-  //         dispatch(updateFilteredUsers(users));
-  //         setFilter(e);
-  //       })
-  //       .catch((err) => alert(err));
-  //   } else {
-  //   }
-  // };
-
-  // const handleSearch = (e) => {
-  //   setSearch(e.target.value);
-  // };
-
-  // const handleSubmitSearch = (e) => {
-  //   e.preventDefault();
-  //   handleSearchEvent();
-  // };
-  // const handleNotSearching = (e) => {
-  //   e.preventDefault();
-  //   setIsSearching(false);
-  //   setSearch("");
-  //   dispatch(getUsers(accessCode, order, 1));
-  // };
-
-  // const handleSearchEvent = () => {
-  //   dispatch(getUsers(accessCode, order, currentPage, search));
-  //   setIsSearching(true);
-  // };
-
-  // const handleOrder = (value) => {
-  //   setOrder(value)
-  //   dispatch(getUsers(accessCode, value, currentPage, search));
-  // }
-
   return (
-    <div className="overflow-x-auto ">
+    <div className="overflow-x-auto">
       <div className="my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-        <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-6 mt-4 overflow-hidden bg-white shadow-lg px-12">
+        <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-6 mt-4  bg-white shadow-lg px-12">
           <div className="flex justify-start space-x-6 items-center pb-4">
             <a href="/admin">
               <img className="w-20" src={logoTransparent} alt="" />
@@ -175,7 +105,6 @@ const OrdersTable = () => {
               <div className="flex flex-wrap items-stretch w-full h-full mb-2 relative">
                 <input
                   value={search}
-                  // onChange={handleSearch}
                   type="text"
                   className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-base text-gray-500 font-thin"
                   placeholder="Search"
@@ -183,14 +112,12 @@ const OrdersTable = () => {
                 <div className="flex">
                   {isSearching ? (
                     <button
-                      // onClick={(e) => handleNotSearching(e)}
                       className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm"
                     >
                       X
                     </button>
                   ) : (
                     <button
-                      // onClick={(e) => handleSubmitSearch(e)}
                       className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm"
                     >
                       <svg
@@ -212,29 +139,19 @@ const OrdersTable = () => {
                           stroke="#455A64"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                        />
+                        /> 
                       </svg>
                     </button>
                   )}
                 </div>
               </div>
             </div>
-            <div className="flex">
-              {/* <Dropdown handleFilter={handleFilter} /> */}
-              <div className="mr-2">{/* <ExcelDownloadButton /> */}</div>
-              {/* <div>
-                <a
-                  href="/uploadproduct"
-                  className="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none"
-                >
-                  Crear Orden
-                </a>
-              </div> */}
+            <div className="flex ">
+              <OrderFilter filters={filters} handleOrderFilter={handleOrderFilter} />
             </div>
           </div>
         </div>
-        {/* <div className="py-4"></div> */}
-        <div className="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+        <div className="align-middle inline-block min-w-full shadow  bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
           <table className="align-middle min-w-full">
             <thead>
               <tr>
@@ -255,41 +172,15 @@ const OrdersTable = () => {
                 <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
                   Estado
                 </th>
-                {/* <th className="flex px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider">
-                  Estado
-                </th> */}
                 <th className="px-6 py-3 border-b-2 border-gray-300 text-sm leading-4 text-blue-500 tracking-wider relative">
                   Fecha de Creación
-                  {/* {order === "asc" ? (
-                    <button
-                    // onClick={() => handleOrder("desc")}
-                    >
-                      <img
-                        src={down}
-                        alt="arrow up "
-                        className="absolute top-1/2 transform -translate-y-1/2 text-blue-500"
-                        style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
-                      />
-                    </button>
-                  ) : (
-                    <button
-                    // onClick={() => handleOrder("asc")}
-                    >
-                      <img
-                        src={up} // Ruta a tu imagen de flecha
-                        alt="arrow up "
-                        className="absolute top-1/2 transform -translate-y-1/2 text-blue-500"
-                        style={{ width: "16px", height: "16px" }} // Ajusta el tamaño según tus necesidades
-                      />
-                    </button>
-                  )} */}
                 </th>
                 <th className="px-6 py-3 border-b-2 border-gray-300"></th>
               </tr>
             </thead>
 
             <tbody className="bg-white">
-              {orders?.map((order, index) => (
+              {filteredOrders?.map((order, index) => (
                 <tr key={order.order_id}>
                   <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                     <div className="flex items-center">
@@ -314,6 +205,7 @@ const OrdersTable = () => {
                   <td className="text-center px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                     {order.order_type}
                   </td>
+
 
                   <td className="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                     <span className="flex justify-center text-center relative  px-3 py-1 font-semibold text-green-900 leading-tight">

@@ -160,7 +160,7 @@ const updatedObjectVariant = {
       
         <div className="w-full flex justify-start items-start">
           <ul className="text-left text-md lg:text-md text-gray-600 font-montserrat-400">
-            <li>🍑 Buen calze</li>
+            <li>🍑 Buen calce</li>
             <li>✨ Última tendencia de la moda.</li>
             <li>🌱 Combina con todo.</li>
           </ul>

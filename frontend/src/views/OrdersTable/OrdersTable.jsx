@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOrdersFromBackend } from "../../utils/api";
 import { setBackendOrders } from "../../redux/orebiSlice";
-import { logoTransparent } from "../../assets/index";
+import { mistico } from "../../assets/index";
 import OrderFilter from "../../components/OrderFilters/OrderFilters";
 
 const OrdersTable = () => {
@@ -24,8 +24,8 @@ const OrdersTable = () => {
   const orders = useSelector((state) => state.orebiReducer.orders);
   const [filters, setFilters] = useState({
     Aprobado: true,
-    approved: true,
     Enviado: true,
+    Entregado: true,
     "Pago Pendiente": true,
     Cancelado: false,
   });
@@ -93,12 +93,12 @@ const OrdersTable = () => {
       <div className="my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
         <div className="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-6 mt-4  bg-white shadow-lg px-12">
           <div className="flex justify-start space-x-6 items-center pb-4">
-            <a href="/admin">
-              <img className="w-20" src={logoTransparent} alt="" />
+            <a href="/tabla-de-ordenes">
+              <img className="w-32" src={mistico} alt="" />
             </a>
-            <h1 className="text-3xl font-bold text-gray-700">
+            {/* <h1 className="text-3xl font-bold text-gray-700">
               Ordenes Mistico
-            </h1>
+            </h1> */}
           </div>
           <div className="flex justify-between">
             <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 bg-transparent">
@@ -139,7 +139,7 @@ const OrdersTable = () => {
                           stroke="#455A64"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                        /> 
+                        />  
                       </svg>
                     </button>
                   )}

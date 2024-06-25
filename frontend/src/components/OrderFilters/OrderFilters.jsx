@@ -33,16 +33,7 @@ const OrderFilter = ({ filters, handleOrderFilter }) => {
               />
               Aprobado
             </label>
-            {/* <label className="flex items-center px-4 py-2">
-              <input
-                type="checkbox"
-                name="approved"
-                checked={filters.approved}
-                onChange={handleCheckboxChange}
-                className="mr-2"
-              />
-              approved
-            </label> */}
+
             <label className="flex items-center px-4 py-2">
               <input
                 type="checkbox"
@@ -53,6 +44,17 @@ const OrderFilter = ({ filters, handleOrderFilter }) => {
               />
               Enviado
             </label>
+            <label className="flex items-center px-4 py-2">
+              <input
+                type="checkbox"
+                name="Entregado"
+                checked={filters.Entregado}
+                onChange={handleCheckboxChange}
+                className="mr-2"
+              />
+              Entregado
+            </label>
+            
             <label className="flex items-center px-4 py-2">
               <input
                 type="checkbox"

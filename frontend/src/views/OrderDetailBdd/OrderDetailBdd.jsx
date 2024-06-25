@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { logoTransparent } from "../../assets/index";
+import {  mistico } from "../../assets/index";
 import axios from "axios";
 
 const OrderDetailBdd = () => {
@@ -116,7 +116,7 @@ const OrderDetailBdd = () => {
       <div className="px-32 py-10">
         <div className="w-full flex justify-between">
           <a href="/tabla-de-ordenes" onClick={(e) => { e.preventDefault(); handleNavigation('/tabla-de-ordenes'); }}>
-            <img className="w-20" src={logoTransparent} alt="" />
+            <img className="w-32" src={mistico} alt="" />
           </a>
           <div>
             {isChanging ? (

@@ -12,19 +12,19 @@ const putOrderController = async (order_id, cleanedItems) => {
 
     // Desestructurar los campos actualizados del objeto updatedFields
     const {
-        name,
-        phone,
-        shipment,
-        order_type,
-        status,
-        status_detail,
-        payerMp,
-        payment_method,
-        payment_method_id,
-        payment_type_id,
-        shipping_amount,
-        transaction_amount,
-        transaction_details,
+      name,
+      phone,
+      shipment,
+      order_type,
+      status,
+      status_detail,
+      payerMp,
+      payment_method,
+      payment_method_id,
+      payment_type_id,
+      shipping_amount,
+      transaction_amount,
+      transaction_details,
     } = cleanedItems;
 
     if (name) {
@@ -40,7 +40,11 @@ const putOrderController = async (order_id, cleanedItems) => {
       order.order_type = order_type;
     }
     if (status) {
-      order.status = status;
+      if (status === "approved") {
+        order.status = "Aprobado";
+      } else {
+        order.status = status;
+      }
     }
     if (status_detail) {
       order.status_detail = status_detail;
@@ -77,16 +81,17 @@ const putOrderController = async (order_id, cleanedItems) => {
 
     const asunto = `Orden de compra #${order_number}`;
     const destinatario = client_email;
-    const itemsHtml = items.map(item => {
-      return itemTemplate
-        .replace(/%PRODUCT_IMAGE_URL%/g, item.image)
-        .replace(/%PRODUCT_NAME%/g, item.name)
-        .replace(/%PRODUCT_COLOR%/g, item.color)
-        .replace(/%PRODUCT_SIZE%/g, item.size)
-        .replace(/%PRODUCT_PRICE%/g, `$${formatPrice(item.price)}`);
-    }).join('');
+    const itemsHtml = items
+      .map((item) => {
+        return itemTemplate
+          .replace(/%PRODUCT_IMAGE_URL%/g, item.image)
+          .replace(/%PRODUCT_NAME%/g, item.name)
+          .replace(/%PRODUCT_COLOR%/g, item.color)
+          .replace(/%PRODUCT_SIZE%/g, item.size)
+          .replace(/%PRODUCT_PRICE%/g, `$${formatPrice(item.price)}`);
+      })
+      .join("");
 
-  
     let cuerpo = orderTemplate
       .replace(/%CUSTOMER_NAME%/g, name)
       .replace(/%CUSTOMER_ADDRESS%/g, address)
@@ -96,7 +101,6 @@ const putOrderController = async (order_id, cleanedItems) => {
       .replace(/%ORDER_SUBTOTAL%/g, `$${formatPrice(transaction_amount)}`)
       .replace(/%ORDER_SHIPPING_COST%/g, "Gratis")
       .replace(/%ORDER_TOTAL%/g, `$${formatPrice(transaction_amount)}`);
-
 
     await mailHandler(destinatario, asunto, cuerpo);
     // Guardar los cambios en la base de datos

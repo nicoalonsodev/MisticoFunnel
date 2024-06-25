@@ -17,6 +17,7 @@ import rev4 from "./reviews/4.jpeg";
 import rev5 from "./reviews/5.jpeg";
 import talle_enigma from "./talle_enigma.jpeg";
 import talle_william from "./talle_william.jpeg";
+import mistico from "./mistico.png";
 export {
     calendar,
     shipping,
@@ -36,7 +37,8 @@ export {
     rev2,
     rev3,
     rev4,
-    rev5
+    rev5,
+    mistico
 }
 
 

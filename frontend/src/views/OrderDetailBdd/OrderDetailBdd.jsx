@@ -110,7 +110,7 @@ const OrderDetailBdd = () => {
   };
 
   const productQuantity = order.items ? order.items?.length : "";
-
+ 
   return (
     <>
       <div className="px-32 py-10">

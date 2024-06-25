@@ -169,7 +169,7 @@ const updatedObjectVariant = {
         {images.length > 0 ? (
           <Slider {...settings} key={images.join('-')} className="">
             {images?.map((img, index) => (
-              <div className="px-2" key={index}>
+              <div className="px-10" key={index}>
                 <div className="w-auto flex flex-wrap justify-center items-start gap-4 rounded-xl overflow-hidden">
                   <img src={img} alt="img_before" />
                 </div>

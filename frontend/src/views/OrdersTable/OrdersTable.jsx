@@ -14,7 +14,7 @@ const OrdersTable = () => {
         const orders = await fetchOrdersFromBackend();
         dispatch(setBackendOrders(orders));
       } catch (error) {
-        console.error("Error fetching orders:", error);
+        console.error("Error fetching orders:", error); 
       }
     };
 

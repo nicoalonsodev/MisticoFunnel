@@ -126,7 +126,7 @@ const updatedObjectVariant = {
 
   return (
     <div className="bg-gray-50 flex flex-wrap justify-center lg:flex-nowrap mb-0 lg:mb-[130px] mt-14 lg:mt-0 overflow-hidden">
-      <div id="targetSection" className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
+      <div className="hidden lg:flex flex-col space-y-2 lg:w-2/5">
         <div className="hidden lg:block sticky top-0">
           <img
             src={activeImg}
@@ -148,7 +148,7 @@ const updatedObjectVariant = {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap h-full justify-start items-start w-full lg:w-1/2 px-0 lg:px-10 space-y-2">
+      <div id="targetSection"  className="flex flex-wrap h-full justify-start items-start w-full lg:w-1/2 px-0 lg:px-10 space-y-2">
         <div className="w-full flex justify-start items-start">
           <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-montserrat-700">
             {objectVariant.name}

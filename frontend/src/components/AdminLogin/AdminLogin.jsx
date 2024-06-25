@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col py-8">
-        <h2 className="text-2xl text-pink-600">Ingresar a Sitio Sports</h2>
+        <h2 className="text-2xl text-pink-600">Ingresar a Mistico</h2>
         <form onSubmit={handleLogin} className="space-y-2">
           <div>
             <label className="mr-1">Username:</label>

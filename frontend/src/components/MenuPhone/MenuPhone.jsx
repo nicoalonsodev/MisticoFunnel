@@ -53,7 +53,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
         Usar mi cupón de 30% DE DESCUENTO en la segunda unidad!
         </p>
       </div> */}
-      <div className="flex flex-wrap  mt-4 border-b-[1px] border-t-[1px] border-t-gray-300 border-b-gray-300 my-4 py-1">
+      <div className="w-full flex flex-wrap  mt-4 border-b-[1px] border-t-[1px] border-t-gray-300 border-b-gray-300 my-4 py-1">
         {products.map((item, index) => (
           <div
             className={`w-full ${

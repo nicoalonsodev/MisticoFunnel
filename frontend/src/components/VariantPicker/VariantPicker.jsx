@@ -56,8 +56,8 @@ const VariantPicker = ({
         <>
           {cart ? (
             <div className="block my-4 py-4 w-[100%] border-t-[1px] border-yellow-600 text-center font-montserrat-300 text-balance">
-              <p className="text-yellow-600 mb-2 text-center text-balance font-bold my-3 lg:my-2 text-xl">
-                Usar mi cupón de 30% DE DESCUENTO en la segunda unidad!
+              <p className="text-gray-700 mb-2 text-center text-balance font-bold my-3 lg:my-2 text-xl">
+                Usar mi <span className="text-red-500 uppercase">cupón de 30% DE DESCUENTO</span> en la segunda unidad!
               </p>
               <Slider {...settings}>
                 {variants.map((variant, index) => (

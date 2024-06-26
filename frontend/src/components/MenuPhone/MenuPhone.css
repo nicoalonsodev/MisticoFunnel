@@ -1,8 +1,23 @@
 .menu-phone {
     transition: height 0.3s;
-    height: auto;
+    height: 100vh;
     z-index: 51;
+    overflow-y: auto;
   }
+  
+  .menu-phone::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .menu-phone::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .menu-phone::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 
   .menu-container{
     z-index: 10;

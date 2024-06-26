@@ -75,7 +75,7 @@ const handleVariant = (variant) => {
           )}
         </button>
       </div>
-      <div className="z-99 w-full flex justify-end ">
+      <div className="z-99 w-full flex justify-end overflow-y-auto">
         {menuOpen && (
           <div
           

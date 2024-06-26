@@ -63,7 +63,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
             }`}
             key={item._id}
           >
-            <ItemCard item={item} />
+            <ItemCard item={item} second={index === 1 ? "Second" : ""} />
           </div>
         ))}
       </div>

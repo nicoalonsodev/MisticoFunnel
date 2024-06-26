@@ -8,8 +8,7 @@ import {
 import { useSelector } from "react-redux";
 import formatPrice from "../../utils/formatPrice";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-const ItemCard = ({ item }) => {
-
+const ItemCard = ({ item, second }) => {
   const products = useSelector((state) => state.orebiReducer.cartProducts);
   const dispatch = useDispatch();
   return (
@@ -28,22 +27,33 @@ const ItemCard = ({ item }) => {
               </h1>
             </div>
             <div className="flex items-start ">
-              <h1 className="font-light uppercase text-sm">
-                {item.color}
-              </h1>
+              <h1 className="font-light uppercase text-sm">{item.color}</h1>
             </div>
             <div className="flex w-2/3 items-center justify-start text-sm font-normal">
-                Talle {item.size}
-              </div>
-            <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
-              <div className="flex w-1/3 items-center text-lg font-bold">
-                ${formatPrice(item.quantity * item.price)}
-              </div>
-           
-              {/* <div className="w- border-gray-500 flex items-center justify-start gap-4 text-lg my-4">
-                <p>{item.quantity}</p>
-              </div> */}
+              Talle {item.size}
             </div>
+            {second ? (
+              <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
+                <div className="flex w-1/3 items-center text-lg font-normal">
+                  <p className="line-through">$60,000</p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
+                <div className="flex w-1/3 items-center text-lg font-bold">
+                  ${formatPrice(item.quantity * item.price)}
+                </div>
+              </div>
+            )}
+            {second ? (
+              <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
+                <div className="flex w-1/3 items-center text-lg font-bold">
+                  <p className="">$42,000</p>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <div className="flex text-gray-600 items-start py-4 px-4">

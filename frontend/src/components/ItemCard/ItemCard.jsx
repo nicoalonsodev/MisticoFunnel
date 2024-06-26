@@ -13,7 +13,7 @@ const ItemCard = ({ item }) => {
   const products = useSelector((state) => state.orebiReducer.cartProducts);
   const dispatch = useDispatch();
   return (
-    <div className="w-full mb-4 border">
+    <div className="w-full my-1">
       <div className="flex justify-between col-span-3 gap-2">
         <div className="flex gap-4 text-gray-70">
           <img

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { scrollToSection } from "../../utils/redirectHomeScroll";
 import { useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 const CalendlyFooter = () => {
   const history = useHistory();
   const [isVisible, setIsVisible] = useState(false);
@@ -24,10 +24,9 @@ const CalendlyFooter = () => {
 
   const handleNavigatePayment = () => {
     history.push({
-      pathname: '/payment',
-
+      pathname: "/payment",
     });
-  }
+  };
 
   return (
     <footer
@@ -36,14 +35,19 @@ const CalendlyFooter = () => {
       }`}
     >
       <div className="flex justify-center items-center gap-x-6">
-        
         <div>
-            <button 
-            onClick={products.length === 0 ? scrollToSection : handleNavigatePayment}
-            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 bg-gray-200 hover:bg-yellow-700 hover:text-gray-100 duration-300 hover:border-yellow-700">
-            {products.length === 0 ? "Seleccionar un talle" : products.length === 1 ? "Ir a Comprar $60,000" : "Ir a Comprar $102,000"}
-            </button>
-
+          <button
+            onClick={
+              products.length === 0 ? scrollToSection : handleNavigatePayment
+            }
+            className="text-xl font-poppins-400 border-2 border-gray-800 rounded-xl py-2 px-4 bg-gray-200 hover:bg-yellow-700 hover:text-gray-100 duration-300 hover:border-yellow-700"
+          >
+            {products.length === 0
+              ? "Seleccionar un talle"
+              : products.length === 1
+              ? "Ir a Comprar $60,000"
+              : "Ir a Comprar $102,000"}
+          </button>
         </div>
       </div>
     </footer>

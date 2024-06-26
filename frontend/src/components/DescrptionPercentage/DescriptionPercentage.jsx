@@ -1,6 +1,6 @@
 import React from "react";
 import StatementList from ".././ProgressBar/ProgressBar";
-
+import { video_ugc } from "../../assets";
 const DescriptionPercentage = () => {
   return (
     <div className="flex flex-wrap justify-center items-start h-auto lg:h-[550px] xl:space-x-0 ">
@@ -14,7 +14,7 @@ const DescriptionPercentage = () => {
         </h1>
         <div className="flex lg:hidden overflow-hidden ">
           <video
-            src="https://res.cloudinary.com/dtf3dfpnw/video/upload/v1718197349/Dise%C3%B1o_sin_t%C3%ADtulo_5_wvt9ju.mp4"
+            src={video_ugc}
             autoPlay
             loop
             muted

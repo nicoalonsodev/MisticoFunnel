@@ -1,7 +1,5 @@
 import React from "react";
 import ComparisonSlider from "../ComparisonSlider/ComparisonSlider";
-import img1 from "../../assets/img1.jpg";
-import img2 from "../../assets/img2.jpg";
 import Slider from "react-slick";
 import reasons from "./reasons";
 const ComparisonContainer = () => {
@@ -12,11 +10,7 @@ const ComparisonContainer = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  const comparisons = [
-    { img1: img1, img2: img2 },
-    { img1: img1, img2: img2 },
-    { img1: img1, img2: img2 },
-  ];
+
 
   return (
     <div className="w-full flex flex-wrap justify-center items-center space-y-12 overflow-hidden">

@@ -3,9 +3,6 @@ import shipping from "./shipping.png";
 import returning from "./return.png";
 import best_seller from "./best_seller.png";
 import au from "./australia.png";
-import product from "./product.webp";
-import product2 from "./product2.webp";
-import product3 from "./product3.webp";
 import logoTransparent from "./logo-transparente.png";
 import talles_cargo from "./talle_cargo.jpeg";
 import talles_jean from "./talles_jean.jpeg";
@@ -18,14 +15,15 @@ import rev5 from "./reviews/5.jpeg";
 import talle_enigma from "./talle_enigma.jpeg";
 import talle_william from "./talle_william.jpeg";
 import mistico from "./mistico.png";
+import video_ugc from "./mistico-ugc.mp4";
+import reason1 from "./reason1.png";
+import reason2 from "./reason2.png";
+import reason3 from "./reason3.png";
 export {
     calendar,
     shipping,
     returning,
     best_seller,
-    product,
-    product2,
-    product3,
     au,
     logoTransparent,
     talles_cargo,
@@ -38,7 +36,11 @@ export {
     rev3,
     rev4,
     rev5,
-    mistico
+    mistico,
+    video_ugc,
+    reason1,
+    reason2,
+    reason3
 }
 
 

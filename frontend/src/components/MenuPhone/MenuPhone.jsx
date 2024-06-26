@@ -29,7 +29,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
           : products.length === 2
           ? "w-full lg:w-[34%]"
           : ""
-      } h-full bg-white border-[1px] border-gray-400 fixed top-0 right-0 font-montserrat-400 p-2 lg:p-6`}
+      } h-full bg-white border-[1px] border-gray-400 fixed top-0 right-0 font-montserrat-400 p-2 lg:p-6 pb-24 lg:pb-0`}
     >
       <div>
         <div className="w-full py-2 flex justify-between">

@@ -74,9 +74,9 @@ const createOrder = async (req, res) => {
         installments: 12 // Número máximo de cuotas permitidas (opcional)
       },
       back_urls: {
-        success: `https://mistico-funnel-two.vercel.app/order-mp/${order_number}`,
-        // failure: `https://www.sitiosports.com/orden-mp-rechazada/${order_number}`,
-        // pending: `https://www.sitiosports.com/orden-mp-pendiente/${order_number}`,
+        success: `https://jeans.misticoar.com/order-mp/${order_number}`,
+        failure: `https://jeans.misticoar.com/orden-mp-rechazada/${order_number}`,
+        pending: `https://jeans.misticoar.com/orden-mp-pendiente/${order_number}`,
       },
       auto_return: "approved",
     };

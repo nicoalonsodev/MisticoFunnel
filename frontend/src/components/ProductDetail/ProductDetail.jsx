@@ -190,7 +190,7 @@ const updatedObjectVariant = {
          <p className="text-left font-sans-500"> Elegí un talle</p>
          <SizeGuide cat={objectVariant.cat}  />
           </div>
-          <SizesSelector handleSize={handleSize} selectedSize={selectedSize} />
+          <SizesSelector handleSize={handleSize} selectedSize={selectedSize} selectedVariant={selectedVariant} />
         </div>
        
         <div className="w-full flex justify-start items-start ">

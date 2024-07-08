@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sizes from "../../utils/sizes";
- 
-const SizesSelector = ({ handleSize, selectedSize }) => {
+
+const SizesSelector = ({ handleSize, selectedSize, selectedVariant }) => {
+  const [filteredSizes, setFilteredSizes] = useState(sizes);
+
+  useEffect(() => {
+    if (selectedVariant === 3) {
+      setFilteredSizes(sizes.filter(size => ["38", "46", "48"].includes(size)));
+    } else {
+      setFilteredSizes(sizes);
+    }
+  }, [selectedVariant]);
+
   const handleSizeSelection = (size) => {
     handleSize(size);
   };
 
   const groupedSizes = [];
-  for (let i = 0; i < sizes.length; i += 5) {
-    groupedSizes.push(sizes.slice(i, i + 5));
+  for (let i = 0; i < filteredSizes.length; i += 5) {
+    groupedSizes.push(filteredSizes.slice(i, i + 5));
   }
 
   return (

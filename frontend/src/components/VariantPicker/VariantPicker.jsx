@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import variants from "../../utils/variants";
 import Slider from "react-slick";
 import SampleNextArrow from "../Arrows/SampleNextArrow";
 import SamplePrevArrow from "../Arrows/SamplePrevArrow";
 import { addToCart } from "../../redux/orebiSlice";
 import { useDispatch } from "react-redux";
+
 const VariantPicker = ({
   handleSelectedVariant,
   selectedVariant,
   cart,
   handleCartVariant,
 }) => {
-
   const dispatch = useDispatch();
   const [activeVariant, setActiveVariant] = useState(null);
   const sizes = [38, 40, 42, 44, 46, 48];
@@ -50,6 +50,13 @@ const VariantPicker = ({
     );
   };
 
+  const getFilteredSizes = (variantId) => {
+    if (variantId === 3) {
+      return sizes.filter(size => [38, 46, 48].includes(size));
+    }
+    return sizes;
+  };
+
   return (
     <div className="w-full overflow-y-auto">
       {variants ? (
@@ -78,7 +85,7 @@ const VariantPicker = ({
                       </p>
                       {activeVariant === variant.id && (
                         <div className="bg-white shadow-lg px-2 rounded-xl flex flex-wrap justify-center">
-                          {sizes.map((size) => (
+                          {getFilteredSizes(variant.id).map((size) => (
                             <button
                               key={size}
                               className="m-1 px-3 py-1 border rounded-lg hover:bg-gray-100 focus:outline-none"

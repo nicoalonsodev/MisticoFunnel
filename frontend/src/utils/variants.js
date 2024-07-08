@@ -1,7 +1,7 @@
-import verde from "../assets/cargo_verde";
-import verde2 from "../assets/cargo_verde1";
-import verde3 from "../assets/cargo_verde2";
-import verde4 from "../assets/cargo_verde3";
+import verde from "../assets/cargo_verde.jpeg";
+import verde2 from "../assets/cargo_verde1.jpeg";
+import verde3 from "../assets/cargo_verde2.jpeg";
+import verde4 from "../assets/cargo_verde3.jpeg";
 
 
 const variants = [

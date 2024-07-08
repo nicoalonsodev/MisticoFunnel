@@ -157,7 +157,10 @@ const updatedObjectVariant = {
         <div className="w-full flex justify-start items-start text-[12px]">
           New 🏆 best clothing brand 2024
         </div>
-      
+      <div className="w-full flex flex-wrap justify-start items-start">
+        <h1 className="text-gray-700 w-full text-3xl font-montserrat-700">1 x $60,000</h1>
+        <h1 className="text-yellow-700 text-3xl font-montserrat-700">2 x $112,000</h1>
+      </div>
         <div className="w-full flex justify-start items-start">
           <ul className="text-left text-md lg:text-md text-gray-600 font-montserrat-400">
             <li>🍑 Buen calce</li>

@@ -1,3 +1,9 @@
+import verde from "../assets/cargo_verde";
+import verde2 from "../assets/cargo_verde1";
+import verde3 from "../assets/cargo_verde2";
+import verde4 from "../assets/cargo_verde3";
+
+
 const variants = [
   {
     id: 1,
@@ -74,10 +80,10 @@ const variants = [
     id: 7,
     name: "Cargo Carpinter Verde",
     images: [
-      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.12_k4hrk7.jpg",
-      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.13_qkvvie.jpg",
-      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.13_1_ipev03.jpg",
-      "https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718288526/WhatsApp_Image_2024-06-12_at_16.05.12_2_gs8n9q.jpg",
+      verde,
+      verde2,
+      verde3,
+      verde4
     ],
     color: "Verde",
       cat: "cargo"

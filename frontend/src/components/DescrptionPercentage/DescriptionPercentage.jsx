@@ -37,7 +37,7 @@ const DescriptionPercentage = () => {
       </div>
       <div className="hidden lg:flex justify-center w-[50%] overflow-hidden h-full rounded-xl">
         <video
-          src="https://res.cloudinary.com/dtf3dfpnw/video/upload/v1718197349/Dise%C3%B1o_sin_t%C3%ADtulo_5_wvt9ju.mp4"
+          src={video_ugc}
           autoPlay
           loop
           muted

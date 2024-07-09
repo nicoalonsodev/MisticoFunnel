@@ -25,7 +25,7 @@ export const CustomInput = ({ label, name, value, onChange, placeholder, error }
   };
 
   return (
-    <div className={` sm:col-span-4`}>
+    <div className={`sm:col-span-4`}>
       <div
         className="relative flex flex-wrap cursor-text rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md"
         onClick={handleContainerClick}
@@ -58,10 +58,6 @@ export const CustomInput = ({ label, name, value, onChange, placeholder, error }
 };
 
 const AddressForm = ({ handleAddress, email, payerInfo }) => {
-  const [nombre, setNombre] = useState("");
-  const [mostrarNombre, setMostrarNombre] = useState(false);
-  const [focus, setFocus] = useState(false);
-
   const [form, setForm] = useState({
     payerName: "",
     email: "",
@@ -76,17 +72,8 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
     client_id: "",
   });
 
-  const [errors, setErrors] = useState({
-    payerName: "completar con su nombre",
-    email: "completar email",
-    phone: "colocar su numero",
-    zipCode: "colocar zip Code",
-    state: "Completar con su provincia.",
-    city: "Completar con su ciudad.",
-    street: "Completar con su calle",
-    streetNumber: "Completar con su numero de calle.",
-    client_id: "Completar con su DNI, Cuil o Cuit",
-  });
+  const [errors, setErrors] = useState({});
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     if (payerInfo) {
@@ -106,8 +93,6 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
     }
   }, [payerInfo, email]);
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({
@@ -124,16 +109,14 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
     }
     if (!form.email) {
       errors.email = "Debes ingresar un email.";
-    }
-    if (form.email) {
-      const emailRegex =
-        /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    } else {
+      const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
       if (!emailRegex.test(form.email)) {
         errors.email = "El email ingresado no es válido";
       }
     }
     if (!form.phone) {
-      errors.phone = "Debe ingresar su numero de celular.";
+      errors.phone = "Debe ingresar su número de celular.";
     }
     if (!form.zipCode) {
       errors.zipCode = "Debe ingresar su código postal.";
@@ -142,47 +125,66 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
       errors.state = "Debe completar con su provincia.";
     }
     if (!form.city) {
-      errors.zipCode = "Debe ingresar su código postalcompletar con su ciudad.";
+      errors.city = "Debe completar con su ciudad.";
     }
     if (!form.street) {
       errors.street = "Debe ingresar su calle.";
     }
     if (!form.streetNumber) {
-      errors.streetNumber = "Debe ingresar su numero de calle.";
+      errors.streetNumber = "Debe ingresar su número de calle.";
     }
     if (!form.client_id) {
       errors.client_id = "Debe ingresar su DNI, Cuil o Cuit.";
     }
     setErrors(errors);
+    return errors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    validate(form);
-    if (Object.keys(errors).length === 0) {
+    const validationErrors = validate(form);
+    if (Object.keys(validationErrors).length === 0) {
       handleAddress(form);
+      submitForm();
     } else {
       setFormSubmitted(true);
     }
   };
 
-  const handleFocus = () => {
-    setFocus(true);
+  const submitForm = () => {
+    const formData = new FormData();
+    for (const key in form) {
+      formData.append(key, form[key]);
+    }
+    
+    // Add new object with FNAME, EMAIL, PHONE
+    const additionalData = {
+      FNAME: form.payerName,
+      EMAIL: form.email,
+      PHONE: form.phone,
+    };
+    for (const key in additionalData) {
+      formData.append(key, additionalData[key]);
+    }
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbw5i05mkhXcR8YlvCtqTM6ZMmD0Y5hsC6gC3C9hr2LiJ9E40OHxca2jMOoT-0sUvO-4IQ/exec",
+      {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      }
+    )
+      .then((res) => {
+        console.log("Form successfully submitted to Google Sheets");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const handleBlur = () => {
-    if (nombre === "") {
-      setFocus(false);
-    }
-  };
-  const handleContainerClick = () => {
-    if (!focus) {
-      setFocus(true);
-      document.getElementById("payerName").focus();
-    }
-  };
   return (
-    <div className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <CustomInput
         label="Email"
         name="email"
@@ -226,7 +228,6 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
           onChange={handleChange}
           placeholder=""
           error={formSubmitted && errors.state}
-  
         />
 
         <CustomInput
@@ -267,7 +268,7 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
       />
 
       <CustomInput
-        label=" Aclaracion sobre este domicilio (opcional)"
+        label="Aclaracion sobre este domicilio (opcional)"
         name="aclaration"
         value={form.aclaration}
         onChange={handleChange}
@@ -283,16 +284,14 @@ const AddressForm = ({ handleAddress, email, payerInfo }) => {
       />
 
       <div className="w-full flex justify-start">
-   
         <button
           type="submit"
-          onClick={handleSubmit}
-          className="p-4 bg-gray-800 text-gray-100 py-2 rounded-md block text-lg  hover:opacity-80"
+          className="p-4 bg-gray-800 text-gray-100 py-2 rounded-md block text-lg hover:opacity-80"
         >
           Guardar Información
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

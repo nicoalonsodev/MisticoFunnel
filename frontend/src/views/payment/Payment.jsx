@@ -202,6 +202,8 @@ const handlePaynt = () => {
   alert("Debe guardar su información de contacto y elegir su método de pago")
 }
 
+
+
   return (
     <div>
       <PaymentHeader />

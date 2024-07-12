@@ -97,7 +97,7 @@ const updatedObjectVariant = {
       variant: {
         imgUrl: objectVariant.images[0]
       },
-      price: 60000,
+      price: 56000,
       quantity: 1,
       image: objectVariant.images[0],                                            
       
@@ -110,7 +110,7 @@ const updatedObjectVariant = {
         quantity: 1,
         size: selectedSize,
         image: objectVariant.images[0],
-        price: 60000,
+        price: 56000,
         color: objectVariant.color,
       })
     );
@@ -150,24 +150,29 @@ const updatedObjectVariant = {
       </div>
       <div id="targetSection"  className="flex flex-wrap h-full justify-start items-start w-full lg:w-1/2 px-0 lg:px-10 space-y-2">
         <div className="w-full flex justify-start items-start">
-          <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-montserrat-700">
+          <h1 className="text-3xl lg:text-5xl text-left text-gray-800 font-montserrat-500">
             {objectVariant.name}
           </h1>
         </div>
-        <div className="w-full flex justify-start items-start text-[12px]">
+        {/* <div className="w-full flex justify-start items-start text-[12px]">
           New 🏆 best clothing brand 2024
+        </div> */}
+        <div className="w-full hidden lg:flex flex-wrap justify-start items-start">
+          <div className="w-full flex items-center space-x-2">
+            <span className="line-through text-gray-700 text-2xl">$70.000</span>
+            <span className="text-gray-900 font-bold text-3xl">$56.000</span>
+          </div>
+          <div className="w-auto text-center mt-2 border-[1px] border-gray-700 py-1 px-2 font-montserrat-300">
+            <span className="text-gray-900 text-md"><span className="font-bold">3</span> CUOTAS SIN INTERÉS DE <span className="font-bold">$18.666</span></span>
+          </div>
         </div>
-      <div className="w-full flex flex-wrap justify-start items-start">
-        <h1 className="text-gray-700 w-full text-3xl font-montserrat-700">1 x $60,000</h1>
-        <h1 className="text-yellow-700 text-3xl font-montserrat-700">2 x $112,000</h1>
-      </div>
-        <div className="w-full flex justify-start items-start">
+        {/* <div className="w-full flex justify-start items-start">
           <ul className="text-left text-md lg:text-md text-gray-600 font-montserrat-400">
             <li>🍑 Buen calce</li>
             <li>✨ Última tendencia de la moda.</li>
             <li>🌱 Combina con todo.</li>
           </ul>
-        </div>
+        </div> */}
         <div id="#button-buy" className="block lg:hidden pt-0 pb-8 lg:py-8 w-[100%]">
         {images.length > 0 ? (
           <Slider {...settings} key={images.join('-')} className="">
@@ -183,6 +188,15 @@ const updatedObjectVariant = {
           ""
         )}
       </div>
+      <div className="w-full flex lg:hidden flex-wrap justify-start items-start">
+          <div className="w-full flex items-center space-x-2">
+            <span className="line-through text-gray-700 text-2xl">$70.000</span>
+            <span className="text-gray-900 font-bold text-3xl">$56.000</span>
+          </div>
+          <div className="w-auto text-center mt-2 border-[1px] border-gray-700 py-1 px-2 font-montserrat-300">
+            <span className="text-gray-900 text-md"><span className="font-bold">3</span> CUOTAS SIN INTERÉS DE <span className="font-bold">$16.000</span></span>
+          </div>
+        </div>
 
         <VariantPicker handleSelectedVariant={handleSelectedVariant} selectedVariant={selectedVariant} />
         <div className="w-full flex flex-wrap">
@@ -193,11 +207,7 @@ const updatedObjectVariant = {
           <SizesSelector handleSize={handleSize} selectedSize={selectedSize} selectedVariant={selectedVariant} />
         </div>
        
-        <div className="w-full flex justify-start items-start ">
-          <h1 className="text-gray-700 font-montserrat-600 text-left text-xl">
-          <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
-          </h1>
-        </div>
+
 
         <div className="w-full flex flex-wrap gap-3 py-4">
           <div className="flex items-center w-full">
@@ -209,7 +219,7 @@ const updatedObjectVariant = {
         <div className="w-full">
           <div className="flex space-x-2 justify-center items-center">
             <p className="font-montserrat-400 pb-2">
-            Envio de 2 a 5 Dias desde Buenos Aires
+            <span className="font-bold uppercase">Envio gratis</span> de 2 a 5 Dias desde Buenos Aires
             </p>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg"
@@ -246,10 +256,17 @@ const updatedObjectVariant = {
               className="checkout-button w-full rounded-md bg-gray-800 hover:bg-yellow-700 mt-3 duration-300 text-2xl font-montserrat-500 text-gray-200 px-2 py-4"
            onClick={handlePaymentGateway}
             >
-              {objectVariant ? ` 👉🏻 IR A PAGAR ${products.length === 1 ? "$60,000" : "$102,000"}` : ""}
+              {objectVariant ? ` 👉🏻 IR A PAGAR ${products.length === 1 ? "$56,000" : "$112,000"}` : ""}
             </button> : ""}
 
         </div>
+
+        <div className="w-full flex justify-start items-start ">
+          <h1 className="text-gray-700 font-montserrat-600 text-left text-xl">
+          <span className="text-yellow-700">OFERTA:</span>  Llevando dos pantalones te ahorras un <span className="text-yellow-700">30% de descuento</span> en la 2da unidad!
+          </h1>
+        </div>
+
         <div className="w-full flex justify-center items-start py-6 gap-2 font-montserrat-300">
           <div className="flex justify-center items-start flex-wrap w-[138px] gap-2 lg:gap-6">
             <div className="w-14 lg:w-20">

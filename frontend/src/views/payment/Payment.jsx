@@ -75,24 +75,27 @@ const Payment = (props) => {
     setShippmentCharge(0);
   }, [location]);
 
+
   useEffect(() => {
-    const price = products.length === 1 ? 60000 : 102000;
-    setTransferDiscount(products.length === 1 ? 0 : 18000);
-    setTotalAmt(products.length === 1 ? 60000 : 120000);
-    setShipmentPlusTotal(products.length === 1 ? 60000 : 102000);
+    const price = products.length === 1 ? 56000 : 112000;
+    setTransferDiscount(products.length === 1 ? 14000 : 28000);
+    setTotalAmt(products.length === 1 ? 70000 : 140000);
+    setShipmentPlusTotal(products.length === 1 ? 56000 : 112000);
   }, [products]);
+
 
   const handlePaymentChange = (payment) => {
     if (payment === "tb") {
-      setShipmentPlusTotal(products.length === 1 ? 54000 : 91800);
-      setTransferDiscount(products.length === 1 ? 6000 : 28200);
+      setShipmentPlusTotal(products.length === 1 ? 50400 : 100800);
+      setTransferDiscount(products.length === 1 ? 19600 : 39200);
     } else {
-      setTransferDiscount(products.length === 1 ? 0 : 18000);
-      setShipmentPlusTotal(products.length === 1 ? 60000 : 102000);
+      setTransferDiscount(products.length === 1 ? 14000 : 28000);
+      setShipmentPlusTotal(products.length === 1 ? 56000 : 112000);
     }
     setPaymentMethod(payment);
   };
   
+
   // useEffect(() => {
   //   setShowDetails(true);
   //   const timer = setTimeout(() => {

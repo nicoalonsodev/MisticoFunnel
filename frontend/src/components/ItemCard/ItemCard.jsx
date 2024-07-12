@@ -35,7 +35,7 @@ const ItemCard = ({ item, second }) => {
             {second ? (
               <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
                 <div className="flex w-1/3 items-center text-lg font-normal">
-                  <p className="line-through">$60,000</p>
+                  <p className="line-through">$56,000</p>
                 </div>
               </div>
             ) : (
@@ -48,7 +48,7 @@ const ItemCard = ({ item, second }) => {
             {second ? (
               <div className="flex-col items-center text-left justify-start lg:justify-start  font-montserrat-400  gap-y-6 mdl:gap-0">
                 <div className="flex w-1/3 items-center text-lg font-bold">
-                  <p className="">$42,000</p>
+                  <p className="">$56,000</p>
                 </div>
               </div>
             ) : (

@@ -65,7 +65,7 @@ const MenuPhone = ({ menuOpen, handleMenuToggle, handleVariant }) => {
           className="checkout-button w-full rounded-xl bg-yellow-700 hover:bg-yellow-500 text-xl text-gray-100 font-montserrat-400 flex justify-center items-center py-2"
         >
           <p>{` 👉🏻 IR A PAGAR ${
-            products.length === 1 ? "$60,000" : "$102,000"
+            products.length === 1 ? "$56,000" : "$112,000"
           }`}</p>
         </a>
         {products.length === 2 ? <OrderResume /> : ""}

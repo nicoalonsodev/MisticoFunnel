@@ -52,7 +52,7 @@ const discount = transaction_details.total_paid_amount * 0.15;
       .replace(/%ORDER_SHIPPING_COST%/g, "Gratis") // Agrega el costo de envío
       .replace(/%ORDER_TOTAL%/g, `$${formatPrice(transaction_amount)}`); // Agrega el total
 
-    const asunto = `Gracias por comprar en Sitio Sports`;
+    const asunto = `Gracias por comprar en Mistico`;
     const destinatario = email;
 
     await mailHandler(destinatario, asunto, cuerpo);

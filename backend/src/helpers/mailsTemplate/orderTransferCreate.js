@@ -77,7 +77,7 @@ const orderTemplate = `
 </head>
 <body>
     <div class="container">
-        <img src="https://res.cloudinary.com/dtf3dfpnw/image/upload/v1718158019/mistico_yw5tla.png" alt="Logo de la empresa" class="logo">
+        <img src="https://res.cloudinary.com/dqriuc2m1/image/upload/v1720818189/logoTransparent_jndavd.png" alt="Logo de la empresa" class="logo">
         <h2>Tu orden de compra: #%ORDER_NUMBER%</h2>
         <p>Estamos esperando la confirmación del pago de %ORDER_TOTAL% para confirmar su compra, en cuanto recibamos el comprobante de pago vía Whatsapp, confirmaremos la misma.</p>
          <div class="account-info">
